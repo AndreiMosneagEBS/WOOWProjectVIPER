@@ -1,0 +1,28 @@
+{
+  "name": "EBSSwiftUtils",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "summary": "EBSSwiftUtils",
+  "requires_arc": true,
+  "version": "1.4",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ivan": "ivan.postolaki@gmail.com"
+  },
+  "homepage": "https://git2.devebs.net/ebs-mobile/ios/swift-utils",
+  "source": {
+    "git": "https://git2.devebs.net/ebs-mobile/ios/swift-utils.git",
+    "tag": "1.4"
+  },
+  "swift_versions": "5.0",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "source_files": "SwiftUtils/**/*.{swift,h,m}",
+  "swift_version": "5.0"
+}

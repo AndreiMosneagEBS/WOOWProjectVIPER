@@ -1,0 +1,28 @@
+import XCTest
+@testable import {{ module_info.project_name }}
+
+class {{ module_info.name }}PresenterTest: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    class MockInteractor: {{ module_info.name }}InteractorInput {
+
+    }
+
+    class MockRouter: {{ module_info.name }}RouterInput {
+
+    }
+
+    class MockViewController: {{ module_info.name }}ViewInput {
+
+        func setupInitialState() {
+
+        }
+    }
+}

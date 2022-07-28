@@ -1,0 +1,109 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+import EBSSwiftUtils
+
+protocol {{ module_info.name }}ViewInput: AnyObject {
+	func setupInitialState()
+    func didUpdateTableStructure(cells: [{{ module_info.name }}CellType])
+}
+
+protocol {{ module_info.name }}ViewOutput {
+    func viewIsReady()
+}
+
+final class {{ module_info.name }}ViewController: BaseVC, StoryboardInstantiable {
+	static var storyboardName: String = "{{ module_info.name }}"
+	
+    var presenter: {{ module_info.name }}ViewOutput!
+    var moduleInput: {{ module_info.name }}ModuleInput!
+
+    private var cells: [{{ module_info.name }}CellType] = []
+    
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var tableView: UITableView!
+
+    // MARK: Object lifecycle
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        if presenter == nil {
+        	{{ module_info.name }}ViewController.configureVIPERModule(for: self)
+		}
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        if presenter == nil {
+        	{{ module_info.name }}ViewController.configureVIPERModule(for: self)
+		}
+    }
+
+    // MARK: View lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureTableView()
+        presenter.viewIsReady()
+    }
+
+    // MARK: - Configure
+    
+    private func configureTableView() {
+        tableView.register(<#CellClass1#>.self,
+                           <#CellClass2#>.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+// MARK: - {{module_info.name}}ViewInput
+
+extension {{ module_info.name }}ViewController: {{module_info.name}}ViewInput {
+	func setupInitialState() {
+
+    }
+
+    func didUpdateTableStructure(cells: [{{ module_info.name }}CellType]) {
+        self.cells = cells
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension {{ module_info.name }}ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension {{ module_info.name }}ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch cells[indexPath.row] {
+        case .<#cellType#>:
+            let cell = tableView[<#CellClass1#>.self, indexPath]
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}

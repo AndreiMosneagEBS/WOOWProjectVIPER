@@ -7,16 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021239C0972965EFFD7B7E53 /* ProductsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46937159E996C504D7F67C54 /* ProductsConfigurator.swift */; };
+		0F2EA480BF8901A1B69721DC /* ProductsCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE8657CB576951D89E08A0 /* ProductsCellType.swift */; };
+		24623677D00A833121100492 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B2EAE5483EEF5B9A86303 /* ProductsInteractor.swift */; };
+		3038F000E0B9590B610E2BC4 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B6C632C827AA1D15CAB7F4 /* ProductsViewController.swift */; };
+		5389106565327229B2DDAD1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C372A0F9A6F789E3C58DA1 /* HomeViewController.swift */; };
+		64413812A84DE1D33C9448F3 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080F0A279FECDFBC57883B7 /* HomeInteractor.swift */; };
+		64908A3E81F3935505D262C6 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4E855825BE15BA1D7CA7F /* HomePresenter.swift */; };
+		71A05E197D74B0DBC1B03199 /* ProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089FC679286F7885F7CAC528 /* ProductsPresenter.swift */; };
+		81E0D6A4F7E3A78DF92082A7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11578C139E142FC862F07969 /* Home.storyboard */; };
 		8E22CA3B288E713200D7A5A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E22CA3A288E713200D7A5A3 /* AppDelegate.swift */; };
 		8E22CA3D288E713200D7A5A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E22CA3C288E713200D7A5A3 /* SceneDelegate.swift */; };
 		8E22CA3F288E713200D7A5A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E22CA3E288E713200D7A5A3 /* ViewController.swift */; };
 		8E22CA42288E713200D7A5A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E22CA40288E713200D7A5A3 /* Main.storyboard */; };
 		8E22CA44288E713200D7A5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E22CA43288E713200D7A5A3 /* Assets.xcassets */; };
 		8E22CA47288E713200D7A5A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E22CA45288E713200D7A5A3 /* LaunchScreen.storyboard */; };
+		8E2374EB28912C33000E0FF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E2374EA28912C33000E0FF0 /* GoogleService-Info.plist */; };
+		8E670F6C289163A500244135 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E670F6B289163A500244135 /* BaseVC.swift */; };
+		8E78E1C82892C7CD008B4A7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1C72892C7CD008B4A7A /* Models.swift */; };
+		8E78E1CA2892CC21008B4A7A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1C92892CC21008B4A7A /* Request.swift */; };
+		8E78E1CE2892D482008B4A7A /* ProductTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1CC2892D482008B4A7A /* ProductTVC.swift */; };
+		8E78E1CF2892D482008B4A7A /* ProductTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E78E1CD2892D482008B4A7A /* ProductTVC.xib */; };
+		910FDD2617F11D0ABB3FCEEC /* ProductsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EB10E6AA66CD255753B4D /* ProductsRouter.swift */; };
+		A0F099F00B83929F003421BC /* Pods_WOOWProjectVIPER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D2A7977A83C1E90344DA3E /* Pods_WOOWProjectVIPER.framework */; };
+		AD214B1E05A8B8D65846D949 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E9860FA9B9826D4A7FB2F /* Products.storyboard */; };
+		B60989AA8C3481DFC0995C96 /* HomeModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15F401DB989866192485DC /* HomeModuleConfigurator.swift */; };
+		D46E8B4B95EE286C7A8AFB74 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55054E3BEC033B8FF7E7FD2D /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E22CA37288E713200D7A5A3 /* WOOWProjectVIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOWProjectVIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		089FC679286F7885F7CAC528 /* ProductsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsPresenter.swift; sourceTree = "<group>"; };
+		11578C139E142FC862F07969 /* Home.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		2F79EC83EB0D62A144EE22A1 /* Pods-WOOWProjectVIPER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOWProjectVIPER.release.xcconfig"; path = "Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER.release.xcconfig"; sourceTree = "<group>"; };
+		3A9E9860FA9B9826D4A7FB2F /* Products.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
+		3B15F401DB989866192485DC /* HomeModuleConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeModuleConfigurator.swift; sourceTree = "<group>"; };
+		46937159E996C504D7F67C54 /* ProductsConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsConfigurator.swift; sourceTree = "<group>"; };
+		55054E3BEC033B8FF7E7FD2D /* HomeRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		60D2A7977A83C1E90344DA3E /* Pods_WOOWProjectVIPER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WOOWProjectVIPER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78B6C632C827AA1D15CAB7F4 /* ProductsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		78C372A0F9A6F789E3C58DA1 /* HomeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8080F0A279FECDFBC57883B7 /* HomeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8E22CA3A288E713200D7A5A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E22CA3C288E713200D7A5A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8E22CA3E288E713200D7A5A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +54,19 @@
 		8E22CA43288E713200D7A5A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E22CA46288E713200D7A5A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E22CA48288E713200D7A5A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E2374EA28912C33000E0FF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8E670F6B289163A500244135 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		8E78E1C62892C7A4008B4A7A /* WOOWProjectVIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOWProjectVIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E78E1C72892C7CD008B4A7A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8E78E1C92892CC21008B4A7A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		8E78E1CC2892D482008B4A7A /* ProductTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTVC.swift; sourceTree = "<group>"; };
+		8E78E1CD2892D482008B4A7A /* ProductTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTVC.xib; sourceTree = "<group>"; };
+		8EAC0CA128928A9300363C03 /* WOOWProjectVIPER.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WOOWProjectVIPER.entitlements; sourceTree = "<group>"; };
+		C80B2EAE5483EEF5B9A86303 /* ProductsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
+		CCE4E855825BE15BA1D7CA7F /* HomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		E1BB8C6748279A5C1489E4D9 /* Pods-WOOWProjectVIPER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOWProjectVIPER.debug.xcconfig"; path = "Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER.debug.xcconfig"; sourceTree = "<group>"; };
+		F97EB10E6AA66CD255753B4D /* ProductsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsRouter.swift; sourceTree = "<group>"; };
+		FEAE8657CB576951D89E08A0 /* ProductsCellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsCellType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,31 +74,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F099F00B83929F003421BC /* Pods_WOOWProjectVIPER.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06A1F9E1298369485061BA5E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8E56A6CC2891148000653249 /* Cells */,
+				11578C139E142FC862F07969 /* Home.storyboard */,
+				78C372A0F9A6F789E3C58DA1 /* HomeViewController.swift */,
+				CCE4E855825BE15BA1D7CA7F /* HomePresenter.swift */,
+				8080F0A279FECDFBC57883B7 /* HomeInteractor.swift */,
+				55054E3BEC033B8FF7E7FD2D /* HomeRouter.swift */,
+				3B15F401DB989866192485DC /* HomeModuleConfigurator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0AC6549E47CA4F11C49C42E3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				06A1F9E1298369485061BA5E /* Home */,
+				58FEF781BC8B2A4744174748 /* Products */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		449FD435AE67C3AC3F5F41DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1BB8C6748279A5C1489E4D9 /* Pods-WOOWProjectVIPER.debug.xcconfig */,
+				2F79EC83EB0D62A144EE22A1 /* Pods-WOOWProjectVIPER.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		58FEF781BC8B2A4744174748 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E78E1CB2892D468008B4A7A /* Cells */,
+				7F880DD41C4D76B5415CC573 /* Entity */,
+				3A9E9860FA9B9826D4A7FB2F /* Products.storyboard */,
+				78B6C632C827AA1D15CAB7F4 /* ProductsViewController.swift */,
+				089FC679286F7885F7CAC528 /* ProductsPresenter.swift */,
+				C80B2EAE5483EEF5B9A86303 /* ProductsInteractor.swift */,
+				F97EB10E6AA66CD255753B4D /* ProductsRouter.swift */,
+				46937159E996C504D7F67C54 /* ProductsConfigurator.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		7F880DD41C4D76B5415CC573 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE8657CB576951D89E08A0 /* ProductsCellType.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		8E22CA2E288E713100D7A5A3 = {
 			isa = PBXGroup;
 			children = (
+				8E78E1C22892C65F008B4A7A /* Network */,
 				8E22CA39288E713200D7A5A3 /* WOOWProjectVIPER */,
-				8E22CA38288E713200D7A5A3 /* Products */,
+				0AC6549E47CA4F11C49C42E3 /* Modules */,
+				449FD435AE67C3AC3F5F41DC /* Pods */,
+				D63EDF6F0BDE206C9F5A6FD1 /* Frameworks */,
+				8E78E1C62892C7A4008B4A7A /* WOOWProjectVIPER.app */,
 			);
-			sourceTree = "<group>";
-		};
-		8E22CA38288E713200D7A5A3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8E22CA37288E713200D7A5A3 /* WOOWProjectVIPER.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		8E22CA39288E713200D7A5A3 /* WOOWProjectVIPER */ = {
 			isa = PBXGroup;
 			children = (
+				8EAC0CA128928A9300363C03 /* WOOWProjectVIPER.entitlements */,
+				8E2EC6162890199A0034E797 /* Login  */,
 				8E22CA3A288E713200D7A5A3 /* AppDelegate.swift */,
 				8E22CA3C288E713200D7A5A3 /* SceneDelegate.swift */,
 				8E22CA3E288E713200D7A5A3 /* ViewController.swift */,
@@ -63,8 +160,66 @@
 				8E22CA43288E713200D7A5A3 /* Assets.xcassets */,
 				8E22CA45288E713200D7A5A3 /* LaunchScreen.storyboard */,
 				8E22CA48288E713200D7A5A3 /* Info.plist */,
+				8E2374EA28912C33000E0FF0 /* GoogleService-Info.plist */,
 			);
 			path = WOOWProjectVIPER;
+			sourceTree = "<group>";
+		};
+		8E2EC6162890199A0034E797 /* Login  */ = {
+			isa = PBXGroup;
+			children = (
+				8E670F6B289163A500244135 /* BaseVC.swift */,
+			);
+			path = "Login ";
+			sourceTree = "<group>";
+		};
+		8E56A6CC2891148000653249 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8E78E1C22892C65F008B4A7A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E78E1C42892C66E008B4A7A /* Requests */,
+				8E78E1C32892C668008B4A7A /* Models */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8E78E1C32892C668008B4A7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E78E1C72892C7CD008B4A7A /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8E78E1C42892C66E008B4A7A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				8E78E1C92892CC21008B4A7A /* Request.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		8E78E1CB2892D468008B4A7A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8E78E1CC2892D482008B4A7A /* ProductTVC.swift */,
+				8E78E1CD2892D482008B4A7A /* ProductTVC.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D63EDF6F0BDE206C9F5A6FD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60D2A7977A83C1E90344DA3E /* Pods_WOOWProjectVIPER.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E22CA4B288E713200D7A5A3 /* Build configuration list for PBXNativeTarget "WOOWProjectVIPER" */;
 			buildPhases = (
+				BB5AEAAA5CDB3B75D70A101D /* [CP] Check Pods Manifest.lock */,
 				8E22CA33288E713100D7A5A3 /* Sources */,
 				8E22CA34288E713100D7A5A3 /* Frameworks */,
 				8E22CA35288E713100D7A5A3 /* Resources */,
+				BCBC1E31D738FE7D09762F98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,7 +241,7 @@
 			);
 			name = WOOWProjectVIPER;
 			productName = WOOWProjectVIPER;
-			productReference = 8E22CA37288E713200D7A5A3 /* WOOWProjectVIPER.app */;
+			productReference = 8E78E1C62892C7A4008B4A7A /* WOOWProjectVIPER.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +268,7 @@
 				Base,
 			);
 			mainGroup = 8E22CA2E288E713100D7A5A3;
-			productRefGroup = 8E22CA38288E713200D7A5A3 /* Products */;
+			productRefGroup = 8E22CA2E288E713100D7A5A3;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -127,11 +284,57 @@
 			files = (
 				8E22CA47288E713200D7A5A3 /* LaunchScreen.storyboard in Resources */,
 				8E22CA44288E713200D7A5A3 /* Assets.xcassets in Resources */,
+				8E2374EB28912C33000E0FF0 /* GoogleService-Info.plist in Resources */,
 				8E22CA42288E713200D7A5A3 /* Main.storyboard in Resources */,
+				8E78E1CF2892D482008B4A7A /* ProductTVC.xib in Resources */,
+				81E0D6A4F7E3A78DF92082A7 /* Home.storyboard in Resources */,
+				AD214B1E05A8B8D65846D949 /* Products.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BB5AEAAA5CDB3B75D70A101D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WOOWProjectVIPER-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCBC1E31D738FE7D09762F98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E22CA33288E713100D7A5A3 /* Sources */ = {
@@ -141,6 +344,21 @@
 				8E22CA3F288E713200D7A5A3 /* ViewController.swift in Sources */,
 				8E22CA3B288E713200D7A5A3 /* AppDelegate.swift in Sources */,
 				8E22CA3D288E713200D7A5A3 /* SceneDelegate.swift in Sources */,
+				8E78E1CE2892D482008B4A7A /* ProductTVC.swift in Sources */,
+				5389106565327229B2DDAD1F /* HomeViewController.swift in Sources */,
+				8E670F6C289163A500244135 /* BaseVC.swift in Sources */,
+				64908A3E81F3935505D262C6 /* HomePresenter.swift in Sources */,
+				64413812A84DE1D33C9448F3 /* HomeInteractor.swift in Sources */,
+				8E78E1CA2892CC21008B4A7A /* Request.swift in Sources */,
+				D46E8B4B95EE286C7A8AFB74 /* HomeRouter.swift in Sources */,
+				B60989AA8C3481DFC0995C96 /* HomeModuleConfigurator.swift in Sources */,
+				0F2EA480BF8901A1B69721DC /* ProductsCellType.swift in Sources */,
+				3038F000E0B9590B610E2BC4 /* ProductsViewController.swift in Sources */,
+				8E78E1C82892C7CD008B4A7A /* Models.swift in Sources */,
+				71A05E197D74B0DBC1B03199 /* ProductsPresenter.swift in Sources */,
+				24623677D00A833121100492 /* ProductsInteractor.swift in Sources */,
+				910FDD2617F11D0ABB3FCEEC /* ProductsRouter.swift in Sources */,
+				021239C0972965EFFD7B7E53 /* ProductsConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,17 +500,18 @@
 		};
 		8E22CA4C288E713200D7A5A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1BB8C6748279A5C1489E4D9 /* Pods-WOOWProjectVIPER.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WOOWProjectVIPER/WOOWProjectVIPER.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7Y7LFP4T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WOOWProjectVIPER/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,17 +529,18 @@
 		};
 		8E22CA4D288E713200D7A5A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F79EC83EB0D62A144EE22A1 /* Pods-WOOWProjectVIPER.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WOOWProjectVIPER/WOOWProjectVIPER.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7Y7LFP4T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WOOWProjectVIPER/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

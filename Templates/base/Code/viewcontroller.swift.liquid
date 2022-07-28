@@ -1,0 +1,58 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+import EBSSwiftUtils
+
+protocol {{ module_info.name }}ViewInput: AnyObject {
+	func setupInitialState()
+}
+
+protocol {{ module_info.name }}ViewOutput {
+    func viewIsReady()
+}
+
+final class {{ module_info.name }}ViewController: BaseVC, StoryboardInstantiable {
+	static var storyboardName: String = "{{ module_info.name }}"
+	
+    var presenter: {{ module_info.name }}ViewOutput!
+    var moduleInput: {{ module_info.name }}ModuleInput!
+
+    // MARK: Object lifecycle
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        if presenter == nil {
+        	{{ module_info.name }}ViewController.configureVIPERModule(for: self)
+		}
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        if presenter == nil {
+			{{ module_info.name }}ViewController.configureVIPERModule(for: self)
+        }
+    }
+
+    // MARK: View lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter.viewIsReady()
+    }
+}
+
+// MARK: - {{module_info.name}}ViewInput
+
+extension {{ module_info.name }}ViewController: {{module_info.name}}ViewInput {
+	func setupInitialState() {
+
+    }
+}

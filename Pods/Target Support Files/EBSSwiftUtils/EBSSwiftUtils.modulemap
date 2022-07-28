@@ -1,0 +1,6 @@
+framework module EBSSwiftUtils {
+  umbrella header "EBSSwiftUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}
