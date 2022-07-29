@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		021239C0972965EFFD7B7E53 /* ProductsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46937159E996C504D7F67C54 /* ProductsConfigurator.swift */; };
 		0F2EA480BF8901A1B69721DC /* ProductsCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE8657CB576951D89E08A0 /* ProductsCellType.swift */; };
+		10518F0E3E909942AA6BC007 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCEA19826D623CAD1F3C12E /* Details.storyboard */; };
 		24623677D00A833121100492 /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B2EAE5483EEF5B9A86303 /* ProductsInteractor.swift */; };
 		3038F000E0B9590B610E2BC4 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B6C632C827AA1D15CAB7F4 /* ProductsViewController.swift */; };
+		415317207D6718014B3626D9 /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A72BEDAB1E1AE3CC0564DB /* DetailsRouter.swift */; };
 		5389106565327229B2DDAD1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C372A0F9A6F789E3C58DA1 /* HomeViewController.swift */; };
+		5B84E5E80E18ECBE505BAD59 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05F8D1DE7BC1BBE7B3C4D3 /* DetailsViewController.swift */; };
 		64413812A84DE1D33C9448F3 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080F0A279FECDFBC57883B7 /* HomeInteractor.swift */; };
 		64908A3E81F3935505D262C6 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4E855825BE15BA1D7CA7F /* HomePresenter.swift */; };
 		71A05E197D74B0DBC1B03199 /* ProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089FC679286F7885F7CAC528 /* ProductsPresenter.swift */; };
 		81E0D6A4F7E3A78DF92082A7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11578C139E142FC862F07969 /* Home.storyboard */; };
+		8C9D2AAD8993B670AC115B65 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF851ABCDCFB2256FFAA531 /* DetailsPresenter.swift */; };
 		8E22CA3B288E713200D7A5A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E22CA3A288E713200D7A5A3 /* AppDelegate.swift */; };
 		8E22CA3D288E713200D7A5A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E22CA3C288E713200D7A5A3 /* SceneDelegate.swift */; };
 		8E22CA3F288E713200D7A5A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E22CA3E288E713200D7A5A3 /* ViewController.swift */; };
@@ -23,6 +27,9 @@
 		8E22CA44288E713200D7A5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E22CA43288E713200D7A5A3 /* Assets.xcassets */; };
 		8E22CA47288E713200D7A5A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E22CA45288E713200D7A5A3 /* LaunchScreen.storyboard */; };
 		8E2374EB28912C33000E0FF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E2374EA28912C33000E0FF0 /* GoogleService-Info.plist */; };
+		8E26E1FB2893CD4300AEB5B7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E1FA2893CD4300AEB5B7 /* Extension.swift */; };
+		8E26E1FF2894103200AEB5B7 /* ImageProductCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E1FD2894103200AEB5B7 /* ImageProductCVC.swift */; };
+		8E26E2002894103200AEB5B7 /* ImageProductCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E26E1FE2894103200AEB5B7 /* ImageProductCVC.xib */; };
 		8E670F6C289163A500244135 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E670F6B289163A500244135 /* BaseVC.swift */; };
 		8E78E1C82892C7CD008B4A7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1C72892C7CD008B4A7A /* Models.swift */; };
 		8E78E1CA2892CC21008B4A7A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1C92892CC21008B4A7A /* Request.swift */; };
@@ -32,20 +39,25 @@
 		A0F099F00B83929F003421BC /* Pods_WOOWProjectVIPER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D2A7977A83C1E90344DA3E /* Pods_WOOWProjectVIPER.framework */; };
 		AD214B1E05A8B8D65846D949 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E9860FA9B9826D4A7FB2F /* Products.storyboard */; };
 		B60989AA8C3481DFC0995C96 /* HomeModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15F401DB989866192485DC /* HomeModuleConfigurator.swift */; };
+		CF9492CF0761B4C2385901B8 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AE2D9E63A5CAD6A673F15 /* DetailsInteractor.swift */; };
 		D46E8B4B95EE286C7A8AFB74 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55054E3BEC033B8FF7E7FD2D /* HomeRouter.swift */; };
+		D7D7E1D31DF0D04BB7E5456A /* DetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C4A089AD3EBFF71755272 /* DetailsConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089FC679286F7885F7CAC528 /* ProductsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsPresenter.swift; sourceTree = "<group>"; };
 		11578C139E142FC862F07969 /* Home.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		1DF851ABCDCFB2256FFAA531 /* DetailsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		2F79EC83EB0D62A144EE22A1 /* Pods-WOOWProjectVIPER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOWProjectVIPER.release.xcconfig"; path = "Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER.release.xcconfig"; sourceTree = "<group>"; };
 		3A9E9860FA9B9826D4A7FB2F /* Products.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 		3B15F401DB989866192485DC /* HomeModuleConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeModuleConfigurator.swift; sourceTree = "<group>"; };
 		46937159E996C504D7F67C54 /* ProductsConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsConfigurator.swift; sourceTree = "<group>"; };
 		55054E3BEC033B8FF7E7FD2D /* HomeRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		60D2A7977A83C1E90344DA3E /* Pods_WOOWProjectVIPER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WOOWProjectVIPER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A72BEDAB1E1AE3CC0564DB /* DetailsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
 		78B6C632C827AA1D15CAB7F4 /* ProductsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		78C372A0F9A6F789E3C58DA1 /* HomeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7D5C4A089AD3EBFF71755272 /* DetailsConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailsConfigurator.swift; sourceTree = "<group>"; };
 		8080F0A279FECDFBC57883B7 /* HomeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8E22CA3A288E713200D7A5A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E22CA3C288E713200D7A5A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +67,9 @@
 		8E22CA46288E713200D7A5A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E22CA48288E713200D7A5A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E2374EA28912C33000E0FF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8E26E1FA2893CD4300AEB5B7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8E26E1FD2894103200AEB5B7 /* ImageProductCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProductCVC.swift; sourceTree = "<group>"; };
+		8E26E1FE2894103200AEB5B7 /* ImageProductCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageProductCVC.xib; sourceTree = "<group>"; };
 		8E670F6B289163A500244135 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8E78E1C62892C7A4008B4A7A /* WOOWProjectVIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOWProjectVIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E78E1C72892C7CD008B4A7A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -64,7 +79,10 @@
 		8EAC0CA128928A9300363C03 /* WOOWProjectVIPER.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WOOWProjectVIPER.entitlements; sourceTree = "<group>"; };
 		C80B2EAE5483EEF5B9A86303 /* ProductsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
 		CCE4E855825BE15BA1D7CA7F /* HomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		CE05F8D1DE7BC1BBE7B3C4D3 /* DetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E1BB8C6748279A5C1489E4D9 /* Pods-WOOWProjectVIPER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOWProjectVIPER.debug.xcconfig"; path = "Target Support Files/Pods-WOOWProjectVIPER/Pods-WOOWProjectVIPER.debug.xcconfig"; sourceTree = "<group>"; };
+		E35AE2D9E63A5CAD6A673F15 /* DetailsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		ECCEA19826D623CAD1F3C12E /* Details.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		F97EB10E6AA66CD255753B4D /* ProductsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsRouter.swift; sourceTree = "<group>"; };
 		FEAE8657CB576951D89E08A0 /* ProductsCellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsCellType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +118,7 @@
 			children = (
 				06A1F9E1298369485061BA5E /* Home */,
 				58FEF781BC8B2A4744174748 /* Products */,
+				CBD15326CEF2197CB7AB21C8 /* Details */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -139,6 +158,7 @@
 		8E22CA2E288E713100D7A5A3 = {
 			isa = PBXGroup;
 			children = (
+				8E78E1D02893CC36008B4A7A /* Extension */,
 				8E78E1C22892C65F008B4A7A /* Network */,
 				8E22CA39288E713200D7A5A3 /* WOOWProjectVIPER */,
 				0AC6549E47CA4F11C49C42E3 /* Modules */,
@@ -163,6 +183,15 @@
 				8E2374EA28912C33000E0FF0 /* GoogleService-Info.plist */,
 			);
 			path = WOOWProjectVIPER;
+			sourceTree = "<group>";
+		};
+		8E26E1FC2894100C00AEB5B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8E26E1FD2894103200AEB5B7 /* ImageProductCVC.swift */,
+				8E26E1FE2894103200AEB5B7 /* ImageProductCVC.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		8E2EC6162890199A0034E797 /* Login  */ = {
@@ -212,6 +241,28 @@
 				8E78E1CD2892D482008B4A7A /* ProductTVC.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8E78E1D02893CC36008B4A7A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8E26E1FA2893CD4300AEB5B7 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CBD15326CEF2197CB7AB21C8 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				8E26E1FC2894100C00AEB5B7 /* Cells */,
+				ECCEA19826D623CAD1F3C12E /* Details.storyboard */,
+				CE05F8D1DE7BC1BBE7B3C4D3 /* DetailsViewController.swift */,
+				1DF851ABCDCFB2256FFAA531 /* DetailsPresenter.swift */,
+				E35AE2D9E63A5CAD6A673F15 /* DetailsInteractor.swift */,
+				63A72BEDAB1E1AE3CC0564DB /* DetailsRouter.swift */,
+				7D5C4A089AD3EBFF71755272 /* DetailsConfigurator.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		D63EDF6F0BDE206C9F5A6FD1 /* Frameworks */ = {
@@ -289,6 +340,8 @@
 				8E78E1CF2892D482008B4A7A /* ProductTVC.xib in Resources */,
 				81E0D6A4F7E3A78DF92082A7 /* Home.storyboard in Resources */,
 				AD214B1E05A8B8D65846D949 /* Products.storyboard in Resources */,
+				10518F0E3E909942AA6BC007 /* Details.storyboard in Resources */,
+				8E26E2002894103200AEB5B7 /* ImageProductCVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +399,7 @@
 				8E22CA3D288E713200D7A5A3 /* SceneDelegate.swift in Sources */,
 				8E78E1CE2892D482008B4A7A /* ProductTVC.swift in Sources */,
 				5389106565327229B2DDAD1F /* HomeViewController.swift in Sources */,
+				8E26E1FF2894103200AEB5B7 /* ImageProductCVC.swift in Sources */,
 				8E670F6C289163A500244135 /* BaseVC.swift in Sources */,
 				64908A3E81F3935505D262C6 /* HomePresenter.swift in Sources */,
 				64413812A84DE1D33C9448F3 /* HomeInteractor.swift in Sources */,
@@ -354,11 +408,17 @@
 				B60989AA8C3481DFC0995C96 /* HomeModuleConfigurator.swift in Sources */,
 				0F2EA480BF8901A1B69721DC /* ProductsCellType.swift in Sources */,
 				3038F000E0B9590B610E2BC4 /* ProductsViewController.swift in Sources */,
+				8E26E1FB2893CD4300AEB5B7 /* Extension.swift in Sources */,
 				8E78E1C82892C7CD008B4A7A /* Models.swift in Sources */,
 				71A05E197D74B0DBC1B03199 /* ProductsPresenter.swift in Sources */,
 				24623677D00A833121100492 /* ProductsInteractor.swift in Sources */,
 				910FDD2617F11D0ABB3FCEEC /* ProductsRouter.swift in Sources */,
 				021239C0972965EFFD7B7E53 /* ProductsConfigurator.swift in Sources */,
+				5B84E5E80E18ECBE505BAD59 /* DetailsViewController.swift in Sources */,
+				8C9D2AAD8993B670AC115B65 /* DetailsPresenter.swift in Sources */,
+				CF9492CF0761B4C2385901B8 /* DetailsInteractor.swift in Sources */,
+				415317207D6718014B3626D9 /* DetailsRouter.swift in Sources */,
+				D7D7E1D31DF0D04BB7E5456A /* DetailsConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

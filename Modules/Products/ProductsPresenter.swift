@@ -52,6 +52,11 @@ extension ProductsPresenter: ProductsModuleInput {
 // MARK: - ProductsViewOutput
 
 extension ProductsPresenter: ProductsViewOutput {
+    func didTapOnCell(model: About) {
+        router.didTapCell(model: model)
+    }
+    
+    
 	func viewIsReady() {
         view.setupInitialState()
         fetchProduct()

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ImageProductCVC" customModule="WOOWProjectVIPER" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="580" height="416"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="580" height="416"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEl-FF-5Gx">
+                        <rect key="frame" x="0.0" y="0.0" width="580" height="296"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="coI-3S-Kbo">
+                                <rect key="frame" x="160" y="23" width="260" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="8az-XJ-eG2"/>
+                                    <constraint firstAttribute="width" constant="260" id="9VE-VO-LFp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="coI-3S-Kbo" firstAttribute="centerY" secondItem="IEl-FF-5Gx" secondAttribute="centerY" id="FMH-WV-lRo"/>
+                            <constraint firstItem="coI-3S-Kbo" firstAttribute="centerX" secondItem="IEl-FF-5Gx" secondAttribute="centerX" id="to6-Vs-Dn7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="IEl-FF-5Gx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5ty-E9-70j"/>
+                <constraint firstAttribute="bottom" secondItem="IEl-FF-5Gx" secondAttribute="bottom" constant="120" id="VuN-aD-8gP"/>
+                <constraint firstAttribute="trailing" secondItem="IEl-FF-5Gx" secondAttribute="trailing" id="hcC-lM-Rsn"/>
+                <constraint firstItem="IEl-FF-5Gx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qyE-Dj-cE3"/>
+            </constraints>
+            <size key="customSize" width="580" height="416"/>
+            <connections>
+                <outlet property="imageProduct" destination="coI-3S-Kbo" id="Psp-NO-u8j"/>
+            </connections>
+            <point key="canvasLocation" x="301.44927536231887" y="326.11607142857139"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

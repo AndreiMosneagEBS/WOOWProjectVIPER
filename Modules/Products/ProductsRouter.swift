@@ -9,9 +9,15 @@
 import Foundation
 
 protocol ProductsRouterInput {
-
+    func didTapCell(model: About)
 }
 
 final class ProductsRouter: ProductsRouterInput {
+    func didTapCell(model: About) {
+        let vc = DetailsViewController.instantiate()
+        vc.moduleInput.setup(model: model)
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
 	weak var viewController: ProductsViewController!
 }

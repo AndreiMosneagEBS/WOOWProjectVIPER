@@ -15,7 +15,7 @@ class Request {
     
     func fetchProducts( page: Int = 1, completion: @escaping (Result<[About],Error>)-> Void) {
         
-        AF.request("http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=5").response { response in
+        AF.request("http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=15").response { response in
             switch response.result {
             case .success(let values):
                 if let values = values {

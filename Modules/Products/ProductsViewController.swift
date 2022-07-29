@@ -16,6 +16,7 @@ protocol ProductsViewInput: AnyObject {
 
 protocol ProductsViewOutput {
     func viewIsReady()
+    func didTapOnCell(model: About)
 }
 
 final class ProductsViewController: BaseVC, StoryboardInstantiable {
@@ -55,6 +56,8 @@ final class ProductsViewController: BaseVC, StoryboardInstantiable {
 
         configureTableView()
         presenter.viewIsReady()
+        
+        
     }
 
     // MARK: - Configure
@@ -94,15 +97,25 @@ extension ProductsViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ProductsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 215
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch cells[indexPath.row] {
         case .products(let product):
             let cell = tableView[ProductTVC.self, indexPath]
+            cell.setup(model: product )
             return cell
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch cells[indexPath.row] {
+        case .products(product: let product):
+            self.presenter.didTapOnCell(model: product)
+        }
     }
+    
 }
