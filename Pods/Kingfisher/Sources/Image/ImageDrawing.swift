@@ -595,7 +595,7 @@ extension KingfisherWrapper where Base: KFCrossPlatformImage {
         let renderer = UIGraphicsImageRenderer(size: size, format: format)
         
         var useRefImage: Bool = false
-        let image = renderer.image { rendererContext in
+        let imageArray = renderer.image { rendererContext in
             
             let context = rendererContext.cgContext
             if inverting { // If drawing a CGImage, we need to make context flipped.
@@ -606,13 +606,13 @@ extension KingfisherWrapper where Base: KFCrossPlatformImage {
             useRefImage = draw(context)
         }
         if useRefImage {
-            guard let cgImage = image.cgImage else {
+            guard let cgImage = imageArray.cgImage else {
                 return base
             }
             let ref = refImage ?? base
             return KingfisherWrapper.image(cgImage: cgImage, scale: format.scale, refImage: ref)
         } else {
-            return image
+            return imageArray
         }
         #endif
     }

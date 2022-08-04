@@ -7,12 +7,25 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomeRouterInput {
     func showProfileView()
+    func didTapLogIn()
+    
 }
 
 final class HomeRouter: HomeRouterInput {
+   
+    
+    
+    func didTapLogIn() {
+        
+        let vc = ProductsViewController.instantiate()
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
+    
 	weak var viewController: HomeViewController!
     
     func showProfileView() {

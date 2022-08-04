@@ -107,7 +107,7 @@ extension KingfisherWrapper where Base: NSButton {
     {
         var mutatingSelf = self
         guard let source = source else {
-            base.image = placeholder
+            base.imageArray = placeholder
             mutatingSelf.taskIdentifier = nil
             completionHandler?(.failure(KingfisherError.imageSettingError(reason: .emptySource)))
             return nil
@@ -115,7 +115,7 @@ extension KingfisherWrapper where Base: NSButton {
 
         var options = parsedOptions
         if !options.keepCurrentImageWhileLoading {
-            base.image = placeholder
+            base.imageArray = placeholder
         }
 
         let issuedIdentifier = Source.Identifier.next()
@@ -129,7 +129,7 @@ extension KingfisherWrapper where Base: NSButton {
             with: source,
             options: options,
             downloadTaskUpdated: { mutatingSelf.imageTask = $0 },
-            progressiveImageSetter: { self.base.image = $0 },
+            progressiveImageSetter: { self.base.imageArray = $0 },
             referenceTaskIdentifierChecker: { issuedIdentifier == self.taskIdentifier },
             completionHandler: { result in
                 CallbackQueue.mainCurrentOrAsync.execute {
@@ -151,12 +151,12 @@ extension KingfisherWrapper where Base: NSButton {
 
                     switch result {
                     case .success(let value):
-                        self.base.image = value.image
+                        self.base.imageArray = value.imageArray
                         completionHandler?(result)
 
                     case .failure:
-                        if let image = options.onFailureImage {
-                            self.base.image = image
+                        if let imageArray = options.onFailureImage {
+                            self.base.imageArray = imageArray
                         }
                         completionHandler?(result)
                     }
@@ -255,8 +255,8 @@ extension KingfisherWrapper where Base: NSButton {
             options.onDataReceived = (options.onDataReceived ?? []) + [ImageLoadingProgressSideEffect(block)]
         }
 
-        if let provider = ImageProgressiveProvider(options, refresh: { image in
-            self.base.alternateImage = image
+        if let provider = ImageProgressiveProvider(options, refresh: { imageArray in
+            self.base.alternateImage = imageArray
         }) {
             options.onDataReceived = (options.onDataReceived ?? []) + [provider]
         }
@@ -289,12 +289,12 @@ extension KingfisherWrapper where Base: NSButton {
 
                     switch result {
                     case .success(let value):
-                        self.base.alternateImage = value.image
+                        self.base.alternateImage = value.imageArray
                         completionHandler?(result)
 
                     case .failure:
-                        if let image = options.onFailureImage {
-                            self.base.alternateImage = image
+                        if let imageArray = options.onFailureImage {
+                            self.base.alternateImage = imageArray
                         }
                         completionHandler?(result)
                     }

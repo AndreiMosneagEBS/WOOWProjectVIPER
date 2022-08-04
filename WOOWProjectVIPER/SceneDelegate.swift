@@ -70,7 +70,7 @@ extension SceneDelegate {
     }
     
     func presentHomeScreen() {
-          let home = ProductsViewController.instantiate()
+          let home = HomeViewController.instantiate()
           let navigation = UINavigationController(rootViewController: home)
           navigation.isNavigationBarHidden = true
           setRootController(navigation)

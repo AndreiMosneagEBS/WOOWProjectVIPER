@@ -9,14 +9,31 @@
 import Foundation
 
 protocol DetailsInteractorInput {
-
+    func getProductDetails(id: Int)
 }
 
 protocol DetailsInteractorOutput: AnyObject {
+    func didFetchProductSuccess(product: ProductDetails)
+    func didFetchProductError(error: Error)
 
 }
 
 final class DetailsInteractor: DetailsInteractorInput {
     weak var output: DetailsInteractorOutput!
-
+    
+    
+    func getProductDetails(id: Int) {
+        Request.shared.getDetails(id: id) { results in
+            switch results {
+            case .success(let product):
+                print(product)
+                self.output.didFetchProductSuccess(product: product)
+            case .failure(let error):
+                self.output.didFetchProductError(error: error)
+            }
+        }
+    }
 }
+
+
+

@@ -39,8 +39,8 @@ public struct KFImage: KFImageProtocol {
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
 extension Image: KFImageHoldingView {
     public typealias RenderingView = Image
-    public static func created(from image: KFCrossPlatformImage?, context: KFImage.Context<Self>) -> Image {
-        Image(crossPlatformImage: image)
+    public static func created(from imageArray: KFCrossPlatformImage?, context: KFImage.Context<Self>) -> Image {
+        Image(crossPlatformImage: imageArray)
     }
 }
 

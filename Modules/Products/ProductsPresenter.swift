@@ -18,6 +18,8 @@ final class ProductsPresenter {
     var interactor: ProductsInteractorInput!
     var router: ProductsRouterInput!
     var products: [About] = []
+    var page: Int?
+    var countProduct: Bool?
     
 	private var baseVC: BaseVC {
         guard let baseVC = view as? BaseVC else {
@@ -34,12 +36,12 @@ final class ProductsPresenter {
             ])
         }
         
-        view.didUpdateTableStructure(cells: cells)
+        view.didUpdateTableStructure(cells: cells, countOfProductsPerPage: countProduct!)
     }
     
     private func fetchProduct() {
         baseVC.showHud()
-        interactor.getProducts()
+     
     }
 }
 
@@ -52,6 +54,15 @@ extension ProductsPresenter: ProductsModuleInput {
 // MARK: - ProductsViewOutput
 
 extension ProductsPresenter: ProductsViewOutput {
+    func didTapButtonProfile() {
+        router.didTapButtonProfile()
+    }
+    
+    func pagination(page: Int) {
+        interactor.getProducts(pag: page)
+        
+    }
+    
     func didTapOnCell(model: About) {
         router.didTapCell(model: model)
     }
@@ -66,9 +77,10 @@ extension ProductsPresenter: ProductsViewOutput {
 // MARK: - ProductsInteractorOutput
 
 extension ProductsPresenter: ProductsInteractorOutput {
-    func didFetchProductsSuccess(products: [About]) {
+    func didFetchProductsSuccess(products: [About], countProductPerPage: Bool) {
         baseVC.hideHud()
-        self.products = products
+        self.countProduct = countProductPerPage
+        self.products.append(contentsOf: products)
         generateCells()
     }
     
@@ -77,3 +89,6 @@ extension ProductsPresenter: ProductsInteractorOutput {
         print(error.localizedDescription)
     }
 }
+
+
+

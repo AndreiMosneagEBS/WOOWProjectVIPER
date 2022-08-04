@@ -11,23 +11,38 @@ import EBSSwiftUtils
 
 protocol DetailsViewInput: AnyObject {
 	func setupInitialState()
-    func setup(model: About)
+    func setup(model: ProductDetails)
     
 }
 
 protocol DetailsViewOutput {
+    
     func viewIsReady()
+    func didTapOnImage(model: String?)
+    
 }
 
 final class DetailsViewController: BaseVC, StoryboardInstantiable {
-    @IBOutlet weak var collectionView: UICollectionView!
     
     static var storyboardName: String = "Details"
-    @IBOutlet weak var pageControl: UIPageControl!
     
-    var image: [String] = ["https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg","https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg"]
-    var product: About?
+    var image: [String] = ["https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg", "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg", "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg"]
+    
+    var productDetails: ProductDetails?
     var currentPage: Int = 0
+    
+    
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var nameProduct: UILabel!
+    @IBOutlet weak var sizeProduct: UILabel!
+    @IBOutlet weak var priceProduct: UILabel!
+    @IBOutlet weak var saleProduct: UILabel!
+    @IBOutlet weak var detailProduct: UILabel!
+    
+    
+    
     
     var presenter: DetailsViewOutput!
     var moduleInput: DetailsModuleInput!
@@ -56,18 +71,13 @@ final class DetailsViewController: BaseVC, StoryboardInstantiable {
         super.viewDidLoad()
         presenter.viewIsReady()
         configureCollectionView()
-        if let product = product?.mainImage {
-            image.append(product)
-        }
         
     }
-    
     
     private func configureCollectionView() {
         collectionView.register(ImageProductCVC.self)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentSize = CGSize(width: 200, height: 280)
     }
     
 }
@@ -75,13 +85,29 @@ final class DetailsViewController: BaseVC, StoryboardInstantiable {
 // MARK: - DetailsViewInput
 
 extension DetailsViewController: DetailsViewInput {
+    func setup(model: ProductDetails) {
+        self.productDetails = model
+        if let product = productDetails?.mainImage {
+            image.append(product)
+        }
+        nameProduct.text = productDetails?.name
+        sizeProduct.text = productDetails?.size
+        if let price = productDetails?.price {
+            priceProduct.text = String(price)
+            saleProduct.text = String(price)
+        }
+        detailProduct.text = productDetails?.details
+        collectionView.reloadData()
+        pageControl.numberOfPages = image.count
+    }
+    
+    
+    
 	func setupInitialState() {
 
     }
     
-    func setup(model: About) {
-        self.product = model
-    }
+  
 }
 
 
@@ -93,7 +119,7 @@ extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView[ImageProductCVC.self,indexPath]
-        if let product = product {
+        if let product = productDetails {
             cell.setup(model: product, page: currentPage)
         }
         return cell
@@ -103,15 +129,32 @@ extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDataS
         print(collectionView.bounds.width)
         return CGSize(width: collectionView.bounds.width , height: 288)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let image = productDetails?.mainImage{
+            self.presenter.didTapOnImage(model: image)}
+    }
 }
 
 extension DetailsViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollCenter = self.view.convert (self.view.center, to: collectionView)
-        guard let indexPath = collectionView.indexPathForItem(at: scrollCenter) else {
-            return
+        let witdh = scrollView.frame.width - (scrollView.contentInset.left*2)
+        let index = scrollView.contentOffset.x / witdh
+        let roundedIndex = round(index)
+        self.pageControl?.currentPage = Int(roundedIndex)
+        
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.collectionView.scrollToNearestVisibleCollectionViewCell()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.collectionView.scrollToNearestVisibleCollectionViewCell()
         }
-        pageControl.currentPage = indexPath.item
     }
 }
 

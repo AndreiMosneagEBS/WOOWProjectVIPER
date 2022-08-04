@@ -6,7 +6,7 @@
 //
 
 // MARK: - Products
-struct Products: Codable {
+struct ProductsResults: Codable {
     let count, totalPages, perPage, currentPage: Int?
     let results: [About]?
 
@@ -26,7 +26,7 @@ struct About: Codable {
     let price: Int?
     let mainImage: String?
     let id: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case category, name, details, size, colour, price
         case mainImage = "main_image"
@@ -34,9 +34,58 @@ struct About: Codable {
     }
 }
 
+
 // MARK: - Category
 struct Category: Codable {
     let name: String?
     let icon: String?
     let id: Int?
 }
+
+
+
+struct ProductDetails: Decodable {
+    let category: AboutProduct?
+    let name, details, size, colour: String?
+    let price, id: Int?
+    let mainImage: String?
+    let images: [Image]?
+    let reviews: [Review]?
+
+    enum CodingKeys: String, CodingKey {
+        case category, name, details, size, colour, price, id
+        case mainImage = "main_image"
+        case images, reviews
+    }
+}
+
+// MARK: - Category
+struct AboutProduct: Codable, Equatable {
+    let name: String?
+    let icon: String?
+    let id: Int?
+}
+
+// MARK: - Image
+struct Image: Codable {
+    let image: String?
+}
+
+// MARK: - Review
+struct Review: Codable {
+    let id: Int?
+    let modifiedAt, createdAt, firstName, lastName: String?
+    let image: String?
+    let rating: Int?
+    let message: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case modifiedAt = "modified_at"
+        case createdAt = "created_at"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case image, rating, message
+    }
+}
+

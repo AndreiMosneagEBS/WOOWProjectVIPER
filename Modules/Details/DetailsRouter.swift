@@ -9,9 +9,16 @@
 import Foundation
 
 protocol DetailsRouterInput {
-
+    func didTapImage(image:String?)
 }
 
 final class DetailsRouter: DetailsRouterInput {
+    func didTapImage(image: String?) {
+        let vcImage = ImageViewController.instantiate()
+        vcImage.moduleInput.setup(model:image)
+        viewController.navigationController?.pushViewController(vcImage, animated: true )
+
+    }
+    
 	weak var viewController: DetailsViewController!
 }

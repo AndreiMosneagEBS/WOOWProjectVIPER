@@ -72,7 +72,7 @@ extension KFImageProtocol {
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
 public protocol KFImageHoldingView: View {
     associatedtype RenderingView
-    static func created(from image: KFCrossPlatformImage?, context: KFImage.Context<Self>) -> Self
+    static func created(from imageArray: KFCrossPlatformImage?, context: KFImage.Context<Self>) -> Self
 }
 
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)

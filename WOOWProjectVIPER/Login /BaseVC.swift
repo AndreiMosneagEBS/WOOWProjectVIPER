@@ -15,14 +15,6 @@ import ProgressHUD
 class BaseVC: UIViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor(red: 12, green: 24, blue: 89, alpha: 100)
-            navigationController?.navigationBar.standardAppearance = appearance;
-            navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        }
     }
     
     
@@ -59,5 +51,16 @@ extension BaseVC {
     
     func showSuccessHudWith(text: String) {
         ProgressHUD.showSucceed(text)
+    }
+}
+extension BaseVC {
+    @IBAction func popToBack(_ sender: AnyObject? = nil) {
+        NotificationCenter.default.removeObserver(self)
+        if let navigation = self.navigationController,
+           navigation.children.count > 1 {
+            navigation.popViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 }

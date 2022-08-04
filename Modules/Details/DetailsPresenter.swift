@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DetailsModuleInput: AnyObject {
-    func setup(model: About)
+    func setup(productID: Int)
 }
 
 final class DetailsPresenter {
@@ -18,8 +18,8 @@ final class DetailsPresenter {
     var interactor: DetailsInteractorInput!
     var router: DetailsRouterInput!
     
-    private var model: About?
-	
+    private var productDetails: ProductDetails?
+    private var productID: Int?
     private var baseVC: BaseVC {
         guard let baseVC = view as? BaseVC else {
             fatalError("ViewController was not inherited from BaseVC")
@@ -31,8 +31,8 @@ final class DetailsPresenter {
 // MARK: - DetailsModuleInput
 
 extension DetailsPresenter: DetailsModuleInput {
-    func setup(model: About) {
-        self.model = model
+    func setup(productID: Int) {
+        self.productID = productID
     }
     
 
@@ -41,16 +41,35 @@ extension DetailsPresenter: DetailsModuleInput {
 // MARK: - DetailsViewOutput
 
 extension DetailsPresenter: DetailsViewOutput {
-	func viewIsReady() {
-		view.setupInitialState()
-        if let model = model {
-            view.setup(model: model)
+    func didTapOnImage(model: String?) {
+        router.didTapImage(image: model)
+    }
+    
+    
+    func viewIsReady() {
+        baseVC.showHud()
+        view.setupInitialState()
+        if let id = productID  {
+            interactor.getProductDetails(id: id)
         }
     }
 }
 
+
 // MARK: - DetailsInteractorOutput
 
 extension DetailsPresenter: DetailsInteractorOutput {
+    func didFetchProductSuccess(product: ProductDetails) {
+        baseVC.hideHud()
+        self.productDetails = product
+        self.view.setup(model: product)
+        
+    }
+    
+    func didFetchProductError(error: Error) {
+        baseVC.hideHud()
+        print(error.localizedDescription)
+    }
+    
 
 }

@@ -10,12 +10,23 @@ import Foundation
 
 protocol ProductsRouterInput {
     func didTapCell(model: About)
+    func didTapButtonProfile()
 }
 
 final class ProductsRouter: ProductsRouterInput {
+    
+    
+    
+    func didTapButtonProfile() {
+        let vc = ProfileViewController.instantiate()
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
     func didTapCell(model: About) {
         let vc = DetailsViewController.instantiate()
-        vc.moduleInput.setup(model: model)
+        if let id =  model.id {
+            vc.moduleInput.setup(productID: id)
+        }
         viewController.navigationController?.pushViewController(vc, animated: true )
     }
     

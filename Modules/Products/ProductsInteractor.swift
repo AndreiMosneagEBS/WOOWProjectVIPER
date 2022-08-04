@@ -9,22 +9,27 @@
 import Foundation
 
 protocol ProductsInteractorInput {
-    func getProducts()
+    func getProducts(pag: Int)
 }
 
 protocol ProductsInteractorOutput: AnyObject {
-    func didFetchProductsSuccess(products: [About])
+    func didFetchProductsSuccess(products: [About], countProductPerPage: Bool)
     func didFetchProductsError(error: Error)
 }
 
 final class ProductsInteractor: ProductsInteractorInput {
     weak var output: ProductsInteractorOutput!
+    
+    var countProductPerPage: Bool = true
 
-    func getProducts() {
-        Request.shared.fetchProducts(page: 1) { results in
+    func getProducts(pag: Int) {
+        Request.shared.fetchProducts(page: pag) { results in
             switch results {
             case .success(let products):
-                self.output.didFetchProductsSuccess(products: products)
+                if products.count != 10 {
+                    self.countProductPerPage = false
+                }
+                self.output.didFetchProductsSuccess(products: products, countProductPerPage: self.countProductPerPage )
             case .failure(let error):
                 self.output.didFetchProductsError(error: error)
             }

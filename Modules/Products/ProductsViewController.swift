@@ -11,12 +11,14 @@ import EBSSwiftUtils
 
 protocol ProductsViewInput: AnyObject {
 	func setupInitialState()
-    func didUpdateTableStructure(cells: [ProductsCellType])
+    func didUpdateTableStructure(cells: [ProductsCellType], countOfProductsPerPage: Bool)
 }
 
 protocol ProductsViewOutput {
     func viewIsReady()
     func didTapOnCell(model: About)
+    func pagination(page: Int)
+    func didTapButtonProfile()
 }
 
 final class ProductsViewController: BaseVC, StoryboardInstantiable {
@@ -26,11 +28,28 @@ final class ProductsViewController: BaseVC, StoryboardInstantiable {
     var moduleInput: ProductsModuleInput!
 
     private var cells: [ProductsCellType] = []
+    private var productsDysplayType: ButtonType = .list
+    private var page: Int = 1
+    private var countProductPerPage: Bool?
     
     // MARK: - Outlets
     
     @IBOutlet private weak var tableView: UITableView!
-
+    @IBOutlet weak var countSale: UILabel!
+    @IBOutlet weak var myCartButton: UIButton!
+    @IBOutlet weak var imageSale: UIImageView!
+    @IBOutlet weak var uiViewCount: UIView!
+    @IBOutlet weak var uiViewBack: UIView!
+    @IBOutlet weak var gridButton: UIButton!
+    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
+    
+    enum ButtonType {
+        case grid
+        case list
+    }
+    
+    
     // MARK: Object lifecycle
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -56,6 +75,8 @@ final class ProductsViewController: BaseVC, StoryboardInstantiable {
 
         configureTableView()
         presenter.viewIsReady()
+        configureButton()
+        self.presenter.pagination(page: page)
         
         
     }
@@ -63,21 +84,48 @@ final class ProductsViewController: BaseVC, StoryboardInstantiable {
     // MARK: - Configure
     
     private func configureTableView() {
-        tableView.register(ProductTVC.self)
+        tableView.register(ProductTVC.self, GridTVC.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
-}
+    
+    private func createSpinnerFooter()-> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        return footerView
+    }
+    
+    
 
+// MARK: - Configure Button
+private func configureButton() {
+    uiViewCount.cornerRadius = uiViewCount.frame.size.width/2
+    uiViewBack.roundCorners([.topRight, .bottomRight], radius: 3)
+    imageSale.roundCorners([.topLeft, .bottomLeft], radius: 3)
+    gridButton.cornerRadius = 2
+    listButton.cornerRadius = 2
+    
+}
+    // MARK: - Action
+    @IBAction func profileButtonAction(_ sender: Any) {
+        self.presenter.didTapButtonProfile()
+        
+    }
+
+}
 // MARK: - ProductsViewInput
 
 extension ProductsViewController: ProductsViewInput {
-	func setupInitialState() {
+    func setupInitialState() {
 
     }
 
-    func didUpdateTableStructure(cells: [ProductsCellType]) {
+    func didUpdateTableStructure(cells: [ProductsCellType], countOfProductsPerPage: Bool) {
         self.cells = cells
+        self.countProductPerPage = countOfProductsPerPage
         self.tableView.reloadData()
     }
 }
@@ -105,6 +153,7 @@ extension ProductsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch cells[indexPath.row] {
         case .products(let product):
+            
             let cell = tableView[ProductTVC.self, indexPath]
             cell.setup(model: product )
             return cell
@@ -117,5 +166,27 @@ extension ProductsViewController: UITableViewDelegate {
             self.presenter.didTapOnCell(model: product)
         }
     }
-    
+}
+
+extension ProductsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height-100-scrollView.frame.size.height) {
+            
+            guard !Request.shared.isPagination else {
+                return
+            }
+            if countProductPerPage!  {
+                self.tableView.tableFooterView = createSpinnerFooter()
+            }
+            Request.shared.fetchProducts(requestingPorcess: true, page: page) { [self] result  in
+                page += 1
+                DispatchQueue.main.async {
+                    
+                    self.tableView.tableFooterView = nil
+                }
+                self.presenter.pagination(page: page)
+            }
+        }
+    }
 }

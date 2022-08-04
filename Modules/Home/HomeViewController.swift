@@ -62,7 +62,6 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewIsReady()
-        
        
     }
     

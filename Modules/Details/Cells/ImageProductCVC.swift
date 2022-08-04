@@ -15,7 +15,7 @@ class ImageProductCVC: UICollectionViewCell {
     }
     @IBOutlet weak var imageProduct: UIImageView!
     
-    func setup(model: About, page: Int){
+    func setup(model: ProductDetails, page: Int){
         imageProduct.setImage(with: model.mainImage ?? "")
     }
     

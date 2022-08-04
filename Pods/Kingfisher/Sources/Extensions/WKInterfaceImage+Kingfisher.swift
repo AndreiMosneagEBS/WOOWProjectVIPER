@@ -153,12 +153,12 @@ extension KingfisherWrapper where Base: WKInterfaceImage {
 
                     switch result {
                     case .success(let value):
-                        self.base.setImage(value.image)
+                        self.base.setImage(value.imageArray)
                         completionHandler?(result)
 
                     case .failure:
-                        if let image = options.onFailureImage {
-                            self.base.setImage(image)
+                        if let imageArray = options.onFailureImage {
+                            self.base.setImage(imageArray)
                         }
                         completionHandler?(result)
                     }
