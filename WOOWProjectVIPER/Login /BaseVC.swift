@@ -15,16 +15,11 @@ import ProgressHUD
 class BaseVC: UIViewController {
     
     override func viewDidLoad() {
+        
     }
-    
-    
 }
 
-
 extension BaseVC {
-    
-    
-
     func showHud() {
         ProgressHUD.animationType = .circleStrokeSpin
         ProgressHUD.colorHUD = .clear

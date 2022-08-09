@@ -45,29 +45,38 @@ extension HomePresenter: HomeModuleInput {
 // MARK: - HomeViewOutput
 
 extension HomePresenter: HomeViewOutput {
+    func didTapGuest() {
+        self.router.didTapGuest()
+    }
+    
     
     func didTapGoogleLogin() {
-//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-//        let config = GIDConfiguration(clientID: clientID)
         let config = GIDConfiguration.init(clientID: "958729113915-kbifijitve5ffr6volduab18r2v4dabk.apps.googleusercontent.com")
-
-
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: HomeViewController()) { user, error in
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self.baseVC) { user, error in
             self.view.googleLogin()
 
           if let error = error {
               print(error.localizedDescription)
             return
           }
-          guard let authentication = user?.authentication, let idToken = authentication.idToken else {
-            return
-          }
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: authentication.accessToken)
-          // ...
+            self.router.didTapLogIn()
+            
+            DispatchQueue.global().async {
+                UserSession.share.name = user?.profile?.name
+                UserSession.share.email = user?.profile?.email
+                guard let userImage = user?.profile?.imageURL(withDimension: 30) else{
+                    return
+                }
+                if let data = try? Data (contentsOf: userImage) {
+                    if let image = UIImage(data: data){
+                    DispatchQueue.main.async {
+                        UserSession.share.image = image
+                        
+                        }
+                    }
+                }
+            }
         }
-        
     }
     
     func didTapFacebookLogin() {
@@ -78,8 +87,6 @@ extension HomePresenter: HomeViewOutput {
             } else if let result = result, result.isCancelled {
                 print("Cancelled")
             } else {
-                
-                print("Logged In")
                 self.getFacebookProfileInfo()
                 self.router.didTapLogIn()
             }
@@ -130,6 +137,6 @@ extension HomePresenter: HomeInteractorOutput {
     }
     
     func didLoginGoogleFailure(error: Error) {
-//        print(<#T##items: Any...##Any#>)
+//        print(T##items: Any...##Any)
     }
 }

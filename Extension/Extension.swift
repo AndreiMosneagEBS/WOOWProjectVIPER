@@ -34,4 +34,10 @@ extension UIView {
 
 }
 
+extension String {
+     func savaDataBasekey()-> String {
+         return self.replacingOccurrences(of: ".", with: "-").replacingOccurrences(of: "@", with: "-")
 
+    }
+
+}

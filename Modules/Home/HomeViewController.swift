@@ -23,6 +23,7 @@ protocol HomeViewOutput {
     func didTapGoogleLogin()
     func didTapFacebookLogin()
     func didTapAppleLogin()
+    func didTapGuest()
 
 
 }
@@ -36,7 +37,7 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
     @IBOutlet weak var loginGoogle: GIDSignInButton!
     @IBOutlet weak var loginFacebook: UIButton!
     @IBOutlet weak var loginApple: UIButton!
-    
+    @IBOutlet weak var asGuest: UIButton!
     
 
     // MARK: Object lifecycle
@@ -66,8 +67,8 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
     }
     
     @IBAction func googleLoginAction(_ sender: UIButton) {
-        let signInConfig = GIDConfiguration.init(clientID: "958729113915-kbifijitve5ffr6volduab18r2v4dabk.apps.googleusercontent.com")
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self)
+//        let signInConfig = GIDConfiguration.init(clientID: "958729113915-kbifijitve5ffr6volduab18r2v4dabk.apps.googleusercontent.com")
+//        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self)
         self.presenter.didTapGoogleLogin()
     }
     
@@ -80,6 +81,10 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
         
     }
     
+    @IBAction func loginAsGuestAction(_ sender: Any) {
+        self.presenter.didTapGuest()
+    }
+    
     
     
     
@@ -89,7 +94,7 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
 
 extension HomeViewController: HomeViewInput {
     func googleLogin() {
-        print("login")
+       
     }
     
 	func setupInitialState() {

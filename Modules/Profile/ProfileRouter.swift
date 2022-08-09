@@ -9,9 +9,14 @@
 import Foundation
 
 protocol ProfileRouterInput {
-
+func logout()
 }
 
 final class ProfileRouter: ProfileRouterInput {
+    func logout() {
+        let vc = HomeViewController.instantiate()
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
 	weak var viewController: ProfileViewController!
 }

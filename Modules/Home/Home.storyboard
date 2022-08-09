@@ -52,7 +52,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MV5-kU-QvF">
-                                <rect key="frame" x="16" y="197" width="197" height="96"/>
+                                <rect key="frame" x="16" y="158" width="197" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="z6c-dL-7FX"/>
                                 </constraints>
@@ -63,7 +63,7 @@ WOW!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to begin adventure." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbJ-Fk-5fi">
-                                <rect key="frame" x="16" y="305" width="201.5" height="24"/>
+                                <rect key="frame" x="16" y="266" width="201.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="DgN-Q0-HVN"/>
                                 </constraints>
@@ -72,7 +72,7 @@ WOW!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aoI-6r-zff">
-                                <rect key="frame" x="16" y="361" width="382" height="152"/>
+                                <rect key="frame" x="16" y="322" width="382" height="152"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8A-Xo-NJ4">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -107,14 +107,14 @@ WOW!</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hq-fo-xB4">
-                                <rect key="frame" x="12" y="549" width="149" height="1"/>
+                                <rect key="frame" x="12" y="510" width="149" height="1"/>
                                 <color key="backgroundColor" red="0.89803922179999995" green="0.92156863209999995" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="06J-Mh-x9Q"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knn-Wg-IGu">
-                                <rect key="frame" x="185" y="539" width="20" height="24"/>
+                                <rect key="frame" x="185" y="500" width="20" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="fyQ-hu-dlJ"/>
                                     <constraint firstAttribute="height" constant="24" id="qNZ-tw-vV4"/>
@@ -124,7 +124,7 @@ WOW!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRv-HO-dOU">
-                                <rect key="frame" x="229" y="549" width="173" height="1"/>
+                                <rect key="frame" x="229" y="510" width="173" height="1"/>
                                 <color key="backgroundColor" red="0.89803922179999995" green="0.92156863209999995" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Gd5-aZ-ZAM"/>
@@ -132,10 +132,13 @@ WOW!</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqD-rN-gei">
-                                <rect key="frame" x="16" y="587" width="382" height="31"/>
+                                <rect key="frame" x="16" y="548" width="382" height="31"/>
                                 <color key="tintColor" red="0.02745098248" green="0.098039209840000002" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Continue as a guest"/>
+                                <connections>
+                                    <action selector="loginAsGuestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PD4-3v-C94"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -153,7 +156,7 @@ WOW!</string>
                             <constraint firstItem="wbJ-Fk-5fi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IsB-rR-nrM"/>
                             <constraint firstItem="RRv-HO-dOU" firstAttribute="leading" secondItem="knn-Wg-IGu" secondAttribute="trailing" constant="24" id="Jql-mn-EiX"/>
                             <constraint firstItem="PqD-rN-gei" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ky5-E2-7VR"/>
-                            <constraint firstItem="MV5-kU-QvF" firstAttribute="top" secondItem="ePQ-1H-UC6" secondAttribute="bottom" constant="109" id="aE0-b2-Pzi"/>
+                            <constraint firstItem="MV5-kU-QvF" firstAttribute="top" secondItem="ePQ-1H-UC6" secondAttribute="bottom" constant="70" id="aE0-b2-Pzi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PqD-rN-gei" secondAttribute="trailing" constant="16" id="bC4-ru-HXr"/>
                             <constraint firstAttribute="trailing" secondItem="ePQ-1H-UC6" secondAttribute="trailing" id="bWT-MZ-gQd"/>
                             <constraint firstItem="wbJ-Fk-5fi" firstAttribute="top" secondItem="MV5-kU-QvF" secondAttribute="bottom" constant="12" id="beG-Bb-zbG"/>
@@ -167,6 +170,7 @@ WOW!</string>
                     </view>
                     <navigationItem key="navigationItem" id="vU3-ln-oMI"/>
                     <connections>
+                        <outlet property="asGuest" destination="PqD-rN-gei" id="bqN-jN-7L5"/>
                         <outlet property="loginApple" destination="Zjr-Ii-7II" id="KpM-s7-cbQ"/>
                         <outlet property="loginFacebook" destination="aoI-6r-zff" id="9eu-E3-uSp"/>
                         <outlet property="loginGoogle" destination="b8A-Xo-NJ4" id="nhP-hF-Sks"/>

@@ -1,0 +1,101 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+import EBSSwiftUtils
+
+protocol {{ module_info.name }}ViewInput: AnyObject {
+	func setupInitialState()
+    func didUpdateCollectionStructure(cells: [{{ module_info.name }}CellType])
+}
+
+protocol {{ module_info.name }}ViewOutput {
+    func viewIsReady()
+}
+
+final class {{ module_info.name }}ViewController: BaseVC, StoryboardInstantiable {
+	static var storyboardName: String = "{{ module_info.name }}"
+	
+    var presenter: {{ module_info.name }}ViewOutput!
+    var moduleInput: {{ module_info.name }}ModuleInput!
+
+    private var cells: [{{ module_info.name }}CellType] = []
+    
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - View lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureCollectionView()
+        presenter.viewIsReady()
+    }
+
+    // MARK: - Configure
+    
+    private func configureCollectionView() {
+        collectionView.register(
+			<#CellClass1#>.self
+		)
+		
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+}
+
+// MARK: - {{module_info.name}}ViewInput
+
+extension {{ module_info.name }}ViewController: {{module_info.name}}ViewInput {
+	func setupInitialState() {
+
+    }
+
+    func didUpdateCollectionStructure(cells: [{{ module_info.name }}CellType]) {
+        self.cells = cells
+        self.collectionView.reloadData()
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension {{module_info.name}}ViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cells.count
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension {{module_info.name}}ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch cells[indexPath.row] {
+        case .<#cellType#>:
+            let cell = collectionView[<#CellClass1#>.self, indexPath]
+            return cell
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension {{module_info.name}}ViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch cells[indexPath.row] {
+        case .cell:
+            return CGSize(width: <#width#>, height: <#height#>)
+        }
+    }
+}

@@ -11,10 +11,12 @@ import EBSSwiftUtils
 
 protocol ProfileViewInput: AnyObject {
     func setupInitialState()
+    
 }
 
 protocol ProfileViewOutput {
     func viewIsReady()
+    func tapLogout()
 }
 
 final class ProfileViewController: BaseVC, StoryboardInstantiable {
@@ -71,7 +73,21 @@ final class ProfileViewController: BaseVC, StoryboardInstantiable {
         if let name = UserSession.share.name {
             nameProfile.text = name
         }
+        if  let mailProfile = UserSession.share.email {
+            mail.text = mailProfile
+        }
     }
+    // MARK: - Action
+    
+
+    @IBAction func logoutAction(_ sender: Any) {
+        self.presenter.tapLogout()
+        
+    }
+    
+    
+    
+    
     
 }
 

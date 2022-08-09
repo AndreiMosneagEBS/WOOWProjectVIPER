@@ -12,19 +12,24 @@ import UIKit
 protocol HomeRouterInput {
     func showProfileView()
     func didTapLogIn()
+    func didTapGuest()
     
 }
 
 final class HomeRouter: HomeRouterInput {
+    
+    func didTapGuest() {
+        let vc = LoginViewController.instantiate()
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
+    
    
-    
-    
     func didTapLogIn() {
         
         let vc = ProductsViewController.instantiate()
         viewController.navigationController?.pushViewController(vc, animated: true )
     }
-    
     
 	weak var viewController: HomeViewController!
     

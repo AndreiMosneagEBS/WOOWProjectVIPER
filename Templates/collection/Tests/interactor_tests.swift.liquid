@@ -1,0 +1,17 @@
+import XCTest
+@testable import {{ module_info.project_name }}
+
+class {{ module_info.name }}InteractorTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    class MockPresenter: {{ module_info.name }}InteractorOutput {
+
+    }
+}

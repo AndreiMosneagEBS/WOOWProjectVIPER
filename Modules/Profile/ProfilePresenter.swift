@@ -35,6 +35,10 @@ extension ProfilePresenter: ProfileModuleInput {
 // MARK: - ProfileViewOutput
 
 extension ProfilePresenter: ProfileViewOutput {
+    func tapLogout() {
+        self.router.logout()
+    }
+    
 	func viewIsReady() {
 		view.setupInitialState()
     }
