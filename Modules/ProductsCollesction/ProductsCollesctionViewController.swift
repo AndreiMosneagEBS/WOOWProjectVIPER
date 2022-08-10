@@ -16,18 +16,30 @@ protocol ProductsCollesctionViewInput: AnyObject {
 
 protocol ProductsCollesctionViewOutput {
     func viewIsReady()
-    func pagination(pag: Int)
+    func pagination()
+    func didTapButtonProfile()
+    func didTapCell(model: About)
+    func didTapFilterButton()
+    
 }
 
 final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
 	static var storyboardName: String = "ProductsCollesction"
 	
+    enum TypeButton {
+        case grid
+        case list
+    }
+    
+    
     var presenter: ProductsCollesctionViewOutput!
     var moduleInput: ProductsCollesctionModuleInput!
     private var isLoading: Bool = false
     private var countProductPerPage: Bool?
     private var cells: [ProductsCollesctionCellType] = []
     private var page: Int = 1
+    private var buttonType: TypeButton = .list
+    private var stack: Bool = false
 
     
     // MARK: - Outlets
@@ -47,20 +59,32 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
     // MARK: - Configure
     
     private func configureCollectionView() {
-        collectionView.register(ProductCVC.self, FoterCVC.self)
+        collectionView.register(ProductCVC.self)
 		
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    private func createSpinnerFooter()-> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        let spinner = UIActivityIndicatorView()
-        spinner.center = footerView.center
-        footerView.addSubview(spinner)
-        spinner.startAnimating()
-        return footerView
+    // MARK: - Action
+    
+    @IBAction func gridButton(_ sender: Any) {
+        stack = false
+        collectionView.reloadData()
     }
+    
+    @IBAction func listButton(_ sender: Any) {
+        buttonType = .list
+        stack = true
+        collectionView.reloadData()
+
+    }
+    @IBAction func filterAction(_ sender: Any) {
+        self.presenter.didTapFilterButton()
+//        collectionView.reloadData()    
+        
+    }
+    
+    
 }
 
 // MARK: - ProductsCollesctionViewInput
@@ -72,7 +96,6 @@ extension ProductsCollesctionViewController: ProductsCollesctionViewInput {
 
     func didUpdateCollectionStructure(cells: [ProductsCollesctionCellType]) {
         self.cells = cells
-        print(cells)
         self.collectionView.reloadData()
     }
 }
@@ -96,15 +119,21 @@ extension ProductsCollesctionViewController: UICollectionViewDelegate {
         switch cells[indexPath.row] {
         case .product(product: let product):
             let cell = collectionView[ProductCVC.self, indexPath]
-            cell.setup(model: product)
-            collectionView.reloadData()
+            cell.setup(model: product, stack: stack )
+            
             return cell
-        case .footer:
-            let cell = collectionView[FoterCVC.self, indexPath]
-            collectionView.reloadData()
-            return cell
+     
         }
-    }    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch cells[indexPath.section] {
+        case .product(product: let product):
+            self.presenter.didTapCell(model: product)
+        }
+    }
+    
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -114,17 +143,25 @@ extension ProductsCollesctionViewController: UICollectionViewDelegateFlowLayout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch cells[indexPath.row] {
         case .product(product: _):
-            return CGSize(width: collectionView.frame.width, height: 200)
-        case .footer:
-            return CGSize(width: collectionView.frame.width, height: 100)
+            if stack{
+                return CGSize(width: collectionView.frame.width, height: 170)
+            }else {
+                return CGSize(width: ((collectionView.frame.width)-5)/2, height: 250)
+
+            }
+       
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
 extension ProductsCollesctionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if(self.collectionView.contentOffset.y >= (self.collectionView.contentSize.height - self.collectionView.bounds.size.height)) {
-            self.presenter.pagination(pag: page)
+            self.presenter.pagination()
           }
     }
 }

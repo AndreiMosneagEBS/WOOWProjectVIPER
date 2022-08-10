@@ -58,8 +58,6 @@
 		8EB7594028994E0900E4C233 /* ImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB7593E28994E0900E4C233 /* ImageCVC.xib */; };
 		8EE3C4E128A132890001AB82 /* ProductCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3C4DF28A132890001AB82 /* ProductCVC.swift */; };
 		8EE3C4E228A132890001AB82 /* ProductCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE3C4E028A132890001AB82 /* ProductCVC.xib */; };
-		8EE3C4E628A154A30001AB82 /* FoterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3C4E428A154A30001AB82 /* FoterCVC.swift */; };
-		8EE3C4E728A154A30001AB82 /* FoterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE3C4E528A154A30001AB82 /* FoterCVC.xib */; };
 		8EFA60CF289A7087006F70D2 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA60CE289A7086006F70D2 /* CollectionViewExtension.swift */; };
 		910FDD2617F11D0ABB3FCEEC /* ProductsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EB10E6AA66CD255753B4D /* ProductsRouter.swift */; };
 		9BC7A5530755272560AA6D29 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139089BB187825FB390699F4 /* ProfilePresenter.swift */; };
@@ -147,8 +145,6 @@
 		8EB7593E28994E0900E4C233 /* ImageCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCVC.xib; sourceTree = "<group>"; };
 		8EE3C4DF28A132890001AB82 /* ProductCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCVC.swift; sourceTree = "<group>"; };
 		8EE3C4E028A132890001AB82 /* ProductCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCVC.xib; sourceTree = "<group>"; };
-		8EE3C4E428A154A30001AB82 /* FoterCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoterCVC.swift; sourceTree = "<group>"; };
-		8EE3C4E528A154A30001AB82 /* FoterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoterCVC.xib; sourceTree = "<group>"; };
 		8EFA60CE289A7086006F70D2 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		BB991B2C0150D64C413C6A97 /* ProductsCollesction.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = ProductsCollesction.storyboard; sourceTree = "<group>"; };
 		C0881846966D50256796CE17 /* ProductsCollesctionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsCollesctionViewController.swift; sourceTree = "<group>"; };
@@ -395,8 +391,6 @@
 			children = (
 				8EE3C4DF28A132890001AB82 /* ProductCVC.swift */,
 				8EE3C4E028A132890001AB82 /* ProductCVC.xib */,
-				8EE3C4E428A154A30001AB82 /* FoterCVC.swift */,
-				8EE3C4E528A154A30001AB82 /* FoterCVC.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -521,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EB7594028994E0900E4C233 /* ImageCVC.xib in Resources */,
-				8EE3C4E728A154A30001AB82 /* FoterCVC.xib in Resources */,
 				8E22CA47288E713200D7A5A3 /* LaunchScreen.storyboard in Resources */,
 				8E22CA44288E713200D7A5A3 /* Assets.xcassets in Resources */,
 				8E2374EB28912C33000E0FF0 /* GoogleService-Info.plist in Resources */,
@@ -631,7 +624,6 @@
 				DC325C08AE7386D866C84ADD /* ProfileRouter.swift in Sources */,
 				F674F8D072FF730AFCBE2581 /* ProfileConfigurator.swift in Sources */,
 				A8F48E38A5995BDA09B9B384 /* CreateAcountViewController.swift in Sources */,
-				8EE3C4E628A154A30001AB82 /* FoterCVC.swift in Sources */,
 				5B500729728FC203BCFF4709 /* CreateAcountPresenter.swift in Sources */,
 				E04D6272A2E2A6A5205F0102 /* CreateAcountInteractor.swift in Sources */,
 				DCA404D5E4A5D5B70DCD80FB /* CreateAcountRouter.swift in Sources */,

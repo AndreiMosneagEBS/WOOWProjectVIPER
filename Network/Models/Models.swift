@@ -19,6 +19,9 @@ struct ProductsResults: Codable {
     }
 }
 
+
+
+
 // MARK: - Result
 struct About: Codable {
     let category: Category?
@@ -89,3 +92,18 @@ struct Review: Codable {
     }
 }
 
+extension About: Comparable {
+    static func == (lhs: About, rhs: About) -> Bool {
+        return true
+    }
+    
+   
+    static func <(lhs: About, rhs: About) -> Bool {
+        return lhs.price! < rhs.price!
+    }
+    
+    static func >(lhs: About, rhs: About) -> Bool {
+        return lhs.price! > rhs.price!
+    }
+    
+}

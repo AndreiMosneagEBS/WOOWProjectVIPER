@@ -77,10 +77,12 @@ extension ProductsPresenter: ProductsViewOutput {
 // MARK: - ProductsInteractorOutput
 
 extension ProductsPresenter: ProductsInteractorOutput {
-    func didFetchProductsSuccess(products: [About], countProductPerPage: Bool) {
+    func didFetchProductsSuccess(products: ProductsResults, countProductPerPage: Bool) {
         baseVC.hideHud()
         self.countProduct = countProductPerPage
-        self.products.append(contentsOf: products)
+        if let products = products.results {
+            self.products.append(contentsOf: products)
+        }
         generateCells()
     }
     
@@ -89,6 +91,7 @@ extension ProductsPresenter: ProductsInteractorOutput {
         print(error.localizedDescription)
     }
 }
+
 
 
 

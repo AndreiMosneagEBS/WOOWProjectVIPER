@@ -10,5 +10,6 @@ import Foundation
 
 enum ProductsCollesctionCellType {
     case product(product: About)
-    case footer
+//    /case grid (product: About)
+//    case footer
 }

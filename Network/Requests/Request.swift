@@ -14,25 +14,20 @@ class Request {
     let decoder = JSONDecoder()
     var isPagination = false
     
-    func fetchProducts(requestingPorcess:Bool = false, page: Int , completion: @escaping (Result<[About],Error>)-> Void) {
+    func fetchProducts(requestingPorcess:Bool = false, page: Int , completion: @escaping (Result<ProductsResults,Error>)-> Void) {
         
-        if requestingPorcess {
-            isPagination = true
-        }
+      
         DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {
-            AF.request("http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=10").response { response in
+            AF.request("http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=5").response { response in
                 switch response.result {
                 case .success(let values):
                     if let values = values {
                         let products = try? self.decoder.decode(ProductsResults.self, from: values)
                         
                         if products != nil{
-                            if let products = products?.results {
+                            if let products = products {
                                 completion(.success(products))
                             }
-                        }
-                        if requestingPorcess {
-                            self.isPagination = false
                         }
                     }
                 case .failure(let error):

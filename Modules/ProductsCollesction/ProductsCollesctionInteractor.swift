@@ -13,7 +13,7 @@ protocol ProductsCollesctionInteractorInput {
 }
 
 protocol ProductsCollesctionInteractorOutput: AnyObject {
-    func didFetchProductsSuccess(products: [About], countProductPerPage: Bool)
+    func didFetchProductsSuccess(products: ProductsResults, countProductPerPage: Bool)
     func didFetchProductsError(error: Error)
 }
 
@@ -26,14 +26,13 @@ final class ProductsCollesctionInteractor: ProductsCollesctionInteractorInput {
         Request.shared.fetchProducts(page: pag) { results in
             switch results {
             case .success(let products):
-                if products.count != 10 {
-                    self.countProductPerPage = false
-                }
+//                if products.count != 10 {
+//                    self.countProductPerPage = false
+//                }
                 self.output.didFetchProductsSuccess(products: products, countProductPerPage: self.countProductPerPage )
             case .failure(let error):
                 self.output.didFetchProductsError(error: error)
             }
         }
     }
-
 }

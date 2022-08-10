@@ -18,11 +18,23 @@ final class ProductsCollesctionPresenter {
     var interactor: ProductsCollesctionInteractorInput!
     var router: ProductsCollesctionRouterInput!
     var products: [About] = []
-    var countProduct: Bool?
-    var page: Int = 0
+    var countProduct: Bool = false
+    var page: Int = 1
     var isPageRefreshing:Bool = false
+    var totalPages: Int = 0
+    var cells: [ProductsCollesctionCellType] = []
+    private var isDescSort: Bool = true {
+        willSet {
+            if newValue {
+                
+                products.sort(by: > )
+            } else {
+                products.sort(by: < )
+            }
+        }
+    }
     
-	private var baseVC: BaseVC {
+    private var baseVC: BaseVC {
         guard let baseVC = view as? BaseVC else {
             fatalError("ViewController was not inherited from BaseVC")
         }
@@ -30,7 +42,6 @@ final class ProductsCollesctionPresenter {
     }
     
     private func generateCells() {
-        var cells: [ProductsCollesctionCellType] = []
         products.forEach { product in
             cells.append(contentsOf: [
                 .product(product: product)
@@ -38,10 +49,8 @@ final class ProductsCollesctionPresenter {
         }
         view.didUpdateCollectionStructure(cells: cells)
     }
-    
-    
-    
 }
+
 
 // MARK: - ProductsCollesctionModuleInput
 
@@ -52,30 +61,55 @@ extension ProductsCollesctionPresenter: ProductsCollesctionModuleInput {
 // MARK: - ProductsCollesctionViewOutput
 
 extension ProductsCollesctionPresenter: ProductsCollesctionViewOutput {
-	func viewIsReady() {
-		view.setupInitialState()
-        self.interactor.getProducts(pag: 1)
+    func didTapFilterButton() {
+        isDescSort.toggle()
+        generateCells()
+    
 
     }
-    func pagination(pag: Int ) {
-        
-        if !isPageRefreshing {
-                   isPageRefreshing = true
-                   print(page)
-                   page = page + 1
-            self.interactor.getProducts(pag: page)
-               }
+    
+    func didTapCell(model: About) {
+        self.router.didTapCell(model: model)
     }
     
+    func didTapButtonProfile() {
+        self.router.didTapButtonProfile()
+    }
+    
+	func viewIsReady() {
+		view.setupInitialState()
+        self.baseVC.showHud()
+        self.interactor.getProducts(pag: page)
+
+    }
+    
+    func pagination() {
+        if !isPageRefreshing {
+            isPageRefreshing = true
+            page += 1
+            self.baseVC.showHud()
+            self.interactor.getProducts(pag: page)
+        }
+    }
 }
 
 // MARK: - ProductsCollesctionInteractorOutput
 
 extension ProductsCollesctionPresenter: ProductsCollesctionInteractorOutput {
-    func didFetchProductsSuccess(products: [About], countProductPerPage: Bool) {
+    func didFetchProductsSuccess(products: ProductsResults, countProductPerPage: Bool) {
         baseVC.hideHud()
         self.countProduct = countProductPerPage
-        self.products.append(contentsOf: products)
+        self.totalPages = products.totalPages ?? 0
+        
+        if let products = products.results {
+            self.products = products
+        }
+        
+        if page == totalPages {
+            self.isPageRefreshing = true
+        } else {
+            self.isPageRefreshing = false
+        }
         generateCells()
     }
     
@@ -83,5 +117,5 @@ extension ProductsCollesctionPresenter: ProductsCollesctionInteractorOutput {
         baseVC.hideHud()
         print(error.localizedDescription)
     }
-
 }
+

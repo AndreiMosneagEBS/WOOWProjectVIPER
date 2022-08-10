@@ -17,16 +17,19 @@ class ProductCVC: UICollectionViewCell {
     @IBOutlet weak var saleProduct: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var saleButton: UIButton!
+    @IBOutlet weak var stakView: UIStackView!
+    @IBOutlet weak var constraintWidth: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeight: NSLayoutConstraint!
     
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
-    func setup(model: About) {
+    func setup(model: About, stack: Bool) {
         nameProduct.text = model.name
         aboutProduct.text = model.size
         if let model = model.price {
@@ -34,8 +37,21 @@ class ProductCVC: UICollectionViewCell {
             saleProduct.text = "\(model)"
         }
         imageProduct.setImage(with: model.mainImage ?? "")
- 
+        
+        if stack {
+            stakView.axis = .horizontal
+            constraintWidth.priority = .required
+            constraintHeight.priority = .defaultLow
+            
+        } else {
+            stakView.axis = .vertical
+            constraintWidth.priority = .defaultLow
+            constraintHeight.priority = .required
+            
+        }
+        self.layoutIfNeeded()
     }
+    
     
 
 }

@@ -13,7 +13,7 @@ protocol ProductsInteractorInput {
 }
 
 protocol ProductsInteractorOutput: AnyObject {
-    func didFetchProductsSuccess(products: [About], countProductPerPage: Bool)
+    func didFetchProductsSuccess(products: ProductsResults, countProductPerPage: Bool)
     func didFetchProductsError(error: Error)
 }
 
