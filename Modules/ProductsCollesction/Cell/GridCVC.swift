@@ -1,13 +1,13 @@
 //
-//  FoterCVC.swift
+//  GridCVC.swift
 //  WOOWProjectVIPER
 //
-//  Created by Andrei Mosneag on 08.08.2022.
+//  Created by Andrei Mosneag on 09.08.2022.
 //
 
 import UIKit
 
-class FoterCVC: UICollectionViewCell {
+class GridCVC: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
