@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum ProductsCellType {
     case products(product: About)
 }

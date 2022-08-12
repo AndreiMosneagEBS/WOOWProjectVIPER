@@ -11,10 +11,19 @@ import Foundation
 protocol ProductsCollesctionRouterInput {
     func didTapCell(model: About)
     func didTapButtonProfile()
+    func didTapFavortesView(favorite: [FavoriteModel])
+    func showMyCard()
 
 }
 
 final class ProductsCollesctionRouter: ProductsCollesctionRouterInput {
+    
+    func didTapFavortesView(favorite: [FavoriteModel]) {
+        let vc = FavoritesViewController.instantiate()
+        vc.moduleInput.setup(model: favorite)
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
     func didTapCell(model: About) {
         let vc = DetailsViewController.instantiate()
         if let id = model.id {
@@ -28,6 +37,15 @@ final class ProductsCollesctionRouter: ProductsCollesctionRouterInput {
         let vc = ProfileViewController.instantiate()
         viewController.navigationController?.pushViewController(vc, animated: true )
     }
+    
+    func showMyCard() {
+        let vc = BayViewController.instantiate()
+        viewController.navigationController?.pushViewController(vc, animated: true )
+    }
+    
+    
+    
+    
     
 	weak var viewController: ProductsCollesctionViewController!
 }

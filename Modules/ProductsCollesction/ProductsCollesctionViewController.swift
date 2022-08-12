@@ -20,6 +20,9 @@ protocol ProductsCollesctionViewOutput {
     func didTapButtonProfile()
     func didTapCell(model: About)
     func didTapFilterButton()
+    func didTapFavorite(model: About)
+    func didTapFavoriteButtonView()
+    func didTapMyCard()
     
 }
 
@@ -40,11 +43,16 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
     private var page: Int = 1
     private var buttonType: TypeButton = .list
     private var stack: Bool = false
-
+    
     
     // MARK: - Outlets
-    
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var gridButton: UIButton!
+    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var imageSale: UIImageView!
+    @IBOutlet weak var uiViewCount: UIView!
+    @IBOutlet weak var uiViewBack: UIView!
+    
 
     // MARK: - View lifecycle
 
@@ -54,6 +62,7 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
         configureCollectionView()
         presenter.viewIsReady()
         self.presenter.viewIsReady()
+        setButton()
     }
 
     // MARK: - Configure
@@ -65,17 +74,39 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
         collectionView.dataSource = self
     }
     
+    private func setButton() {
+        gridButton.backgroundColor = UIColor(named: "blue")
+        gridButton.tintColor = UIColor(named: "gri")
+        gridButton.cornerRadius = 2
+        listButton.backgroundColor =  UIColor(named: "gri")
+        listButton.tintColor = UIColor(named: "blue")
+        gridButton.cornerRadius = 2
+        uiViewCount.cornerRadius = uiViewCount.frame.size.width/2
+        uiViewBack.roundCorners([.topRight, .bottomRight], radius: 3)
+        imageSale.roundCorners([.topLeft, .bottomLeft], radius: 3)
+        
+    }
+    
     // MARK: - Action
+    @IBAction func didTapButtonProfile(_ sender: Any) {
+        self.presenter.didTapButtonProfile()
+    }
     
     @IBAction func gridButton(_ sender: Any) {
         stack = false
         collectionView.reloadData()
+        setButton()
+        
     }
     
     @IBAction func listButton(_ sender: Any) {
         buttonType = .list
         stack = true
         collectionView.reloadData()
+        gridButton.backgroundColor = UIColor(named: "gri")
+        gridButton.tintColor = UIColor(named: "blue")
+        listButton.backgroundColor =  UIColor(named: "blue")
+        listButton.tintColor = UIColor(named: "gri")
 
     }
     @IBAction func filterAction(_ sender: Any) {
@@ -84,6 +115,15 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
         
     }
     
+    @IBAction func favoritesButtoonView(_ sender: Any) {
+        self.presenter.didTapFavoriteButtonView()
+        
+    }
+    
+    @IBAction func myCard(_ sender: Any) {
+        self.presenter.didTapMyCard()
+    
+    }
     
 }
 
@@ -119,7 +159,11 @@ extension ProductsCollesctionViewController: UICollectionViewDelegate {
         switch cells[indexPath.row] {
         case .product(product: let product):
             let cell = collectionView[ProductCVC.self, indexPath]
-            cell.setup(model: product, stack: stack )
+            let params: ProductCVC.Params = .init(id: product.id ?? 0, name: product.name ?? "", size: product.size ?? "", pice: product.price ?? 0, priceSale: product.price ?? 0, image: product.mainImage ?? "")
+            cell.setup(model: params, stack: stack )
+            cell.didTapFavorite = { [weak self] in
+                self?.presenter.didTapFavorite(model: product)
+            }
             
             return cell
      

@@ -21,5 +21,6 @@ pod “SwiftyJSON”
 pod "Alamofire"
 pod “Kingfisher”
 pod 'ProgressHUD'
+pod 'RealmSwift'
     
 end

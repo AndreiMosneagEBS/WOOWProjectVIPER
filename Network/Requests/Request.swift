@@ -18,7 +18,7 @@ class Request {
         
       
         DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {
-            AF.request("http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=5").response { response in
+            AF.request("http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=20").response { response in
                 switch response.result {
                 case .success(let values):
                     if let values = values {

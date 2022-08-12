@@ -833,6 +833,11 @@ PODS:
   - nanopb/encode (2.30909.0)
   - ProgressHUD (13.6)
   - PromisesObjC (2.1.0)
+  - Realm (10.28.2):
+    - Realm/Headers (= 10.28.2)
+  - Realm/Headers (10.28.2)
+  - RealmSwift (10.28.2):
+    - Realm (= 10.28.2)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -850,6 +855,7 @@ DEPENDENCIES:
   - GoogleSignIn (~> 6.2.2)
   - Kingfisher
   - ProgressHUD
+  - RealmSwift
   - SwiftyJSON
 
 SPEC REPOS:
@@ -891,6 +897,8 @@ SPEC REPOS:
     - nanopb
     - ProgressHUD
     - PromisesObjC
+    - Realm
+    - RealmSwift
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -941,8 +949,10 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  Realm: e617c54ad0f566b3d0f6a2abae7010de05f252ac
+  RealmSwift: 8a516a8759d80d52ebcec1ff1076f5f5159f98b2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: eb71415dd4366488adc9b249375aad318468ab53
+PODFILE CHECKSUM: 7821c8cff9eb1ca3f71696496f8d10bf219baccc
 
 COCOAPODS: 1.11.3

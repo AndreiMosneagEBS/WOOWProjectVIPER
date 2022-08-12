@@ -15,7 +15,7 @@ func didTapLoginButton()
 
 final class LoginRouter: LoginRouterInput {
     func didTapLoginButton() {
-        let vc = ProductsViewController.instantiate()
+        let vc = ProductsCollesctionViewController.instantiate()
         viewController.navigationController?.pushViewController(vc, animated: true )
         
     }

@@ -61,11 +61,24 @@ extension ProductsCollesctionPresenter: ProductsCollesctionModuleInput {
 // MARK: - ProductsCollesctionViewOutput
 
 extension ProductsCollesctionPresenter: ProductsCollesctionViewOutput {
-    func didTapFilterButton() {
-        isDescSort.toggle()
-        generateCells()
+    func didTapMyCard() {
+        self.router.showMyCard()
+    }
     
-
+    func didTapFavoriteButtonView() {
+        let favorites = FavoriteManager.shared.getFavorites()
+        self.router.didTapFavortesView(favorite: favorites)
+    }
+    
+    func didTapFavorite(model: About) {
+        FavoriteManager.shared.saveToFavorite(model: model)
+        generateCells()
+    }
+    
+    func didTapFilterButton() {
+       isDescSort = !isDescSort
+        cells.removeAll()
+        generateCells()
     }
     
     func didTapCell(model: About) {
