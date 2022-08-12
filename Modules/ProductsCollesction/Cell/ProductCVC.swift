@@ -43,7 +43,7 @@ class ProductCVC: UICollectionViewCell {
         saleButton.cornerRadius = saleButton.frame.width / 2
         saleButton.setBackgroundColor(UIColor(red: 0.03, green: 0.1, blue: 0.36, alpha: 1.0), for: .selected)
         saleButton.setTitleColor(.white, for: .selected)
-        saleButton.setBackgroundColor(.white, for: .normal)
+        saleButton.setBackgroundColor(.red, for: .normal)
         saleButton.setTitleColor(UIColor(red: 0.03, green: 0.1, blue: 0.36, alpha: 1.0), for: .normal)
     }
     
@@ -58,6 +58,7 @@ class ProductCVC: UICollectionViewCell {
     }
     
     func setup(model: Params, stack: Bool) {
+        
         nameProduct.text = model.name
         aboutProduct.text = model.size
         let isFavorite = FavoriteManager.shared.checkFavorite(id: model.id)
