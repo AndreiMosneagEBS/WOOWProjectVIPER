@@ -8,6 +8,17 @@
 import UIKit
 
 class BayCVC: UICollectionViewCell {
+    
+    var didTapDelete: (() -> Void)?
+    var didTapPlus: (() -> Void)?
+    var didTapMinus: (() -> Void)?
+    var labelPrice: ((Int) -> Void)?
+    
+    
+    var priceProdcut: Int = 2
+    
+    var countlabel = 2
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var size: UILabel!
@@ -21,11 +32,12 @@ class BayCVC: UICollectionViewCell {
     @IBOutlet weak var viewUrna: UIView!
     @IBOutlet weak var buttonUrna: UIButton!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-
+    
     func setupView() {
         viewUrna.cornerRadius = viewUrna.frame.width/2
         viewPlusButton.cornerRadius = viewUrna.frame.width/2
@@ -40,28 +52,47 @@ class BayCVC: UICollectionViewCell {
         var price: Int
         var priceSale: Int
         var image: String
+        var count: Int
         
     }
     
+    func setup(params: Params) {
+        name.text = params.name
+        size.text = params.size
+        price.text = String(params.price)
+        priceSale.text = String(params.priceSale)
+        image.setImage(with: params.image)
+        labelCoutProduct.text = String(params.count)
+        priceProdcut = params.price
+    }
     
-    func setup(model: Params) {
-        name.text = model.name
-        size.text = model.size
-        price.text = String(model.price)
-        priceSale.text = String(model.priceSale)
-        image.setImage(with: model.image)
-        
-        
-        
-        
+    @IBAction func deleteProductCartAction(_ sender: Any) {
+        didTapDelete?()
     }
     
     
     
-    func setup () {
-        
+    @IBAction func plusProduct(_ sender: Any) {
+//        labelPrice!(countlabel * priceProdcut)
+        didTapPlus?()
+//        if countlabel >= 999 {
+//            labelCoutProduct.text = "999"
+//        } else {
+//            countlabel += 1
+//
+//        }
     }
     
-    
+    @IBAction func minusProduct(_ sender: Any) {
+//        labelPrice!(countlabel * priceProdcut)
+        didTapMinus?()
+//        if countlabel <= 1 {
+//            
+//            labelCoutProduct.text = "1"
+//        } else {
+//            countlabel -= 1
+//        }
+        
+    }
     
 }

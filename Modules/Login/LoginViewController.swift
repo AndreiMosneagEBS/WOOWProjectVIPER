@@ -63,7 +63,6 @@ final class LoginViewController: BaseVC, StoryboardInstantiable {
     // MARK: - Action
     
     @IBAction func createAccoutAction(_ sender: Any) {
-        print("ok")
         self.presenter.didTapCreateAccount()
         
     }

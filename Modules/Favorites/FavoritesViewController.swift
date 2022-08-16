@@ -32,7 +32,8 @@ final class FavoritesViewController: BaseVC, StoryboardInstantiable {
     
     @IBOutlet weak var viewLabel: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var coutLabel: UILabel!
+    
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
@@ -56,6 +57,7 @@ final class FavoritesViewController: BaseVC, StoryboardInstantiable {
     
     func setButton() {
         viewLabel.cornerRadius = viewLabel.frame.width / 2
+        
     }
     
     
@@ -82,6 +84,7 @@ extension FavoritesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        coutLabel.text = "\(cells.count)"
         return cells.count
     }
 }

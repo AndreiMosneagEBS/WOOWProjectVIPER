@@ -58,6 +58,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus"/>
+                                        <connections>
+                                            <action selector="plusProduct:" destination="gTV-IL-0wX" eventType="touchUpInside" id="buJ-OL-RXg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,6 +84,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="minus"/>
+                                        <connections>
+                                            <action selector="minusProduct:" destination="gTV-IL-0wX" eventType="touchUpInside" id="dtr-GS-za9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,6 +110,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="34" height="32"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="urna"/>
+                                <connections>
+                                    <action selector="deleteProductCartAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3FA-ED-Z3F"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

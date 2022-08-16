@@ -10,7 +10,7 @@ import UIKit
 import EBSSwiftUtils
 
 protocol ProductsCollesctionViewInput: AnyObject {
-	func setupInitialState()
+    func setupInitialState()
     func didUpdateCollectionStructure(cells: [ProductsCollesctionCellType])
 }
 
@@ -23,12 +23,13 @@ protocol ProductsCollesctionViewOutput {
     func didTapFavorite(model: About)
     func didTapFavoriteButtonView()
     func didTapMyCard()
+    func didTapAddCart(model: About)
     
 }
 
 final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
-	static var storyboardName: String = "ProductsCollesction"
-	
+    static var storyboardName: String = "ProductsCollesction"
+    
     enum TypeButton {
         case grid
         case list
@@ -58,10 +59,8 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureCollectionView()
         presenter.viewIsReady()
-        self.presenter.viewIsReady()
         setButton()
     }
 
@@ -69,7 +68,7 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
     
     private func configureCollectionView() {
         collectionView.register(ProductCVC.self)
-		
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -111,7 +110,7 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
     }
     @IBAction func filterAction(_ sender: Any) {
         self.presenter.didTapFilterButton()
-//        collectionView.reloadData()    
+//        collectionView.reloadData()
         
     }
     
@@ -130,7 +129,7 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
 // MARK: - ProductsCollesctionViewInput
 
 extension ProductsCollesctionViewController: ProductsCollesctionViewInput {
-	func setupInitialState() {
+    func setupInitialState() {
 
     }
 
@@ -163,6 +162,10 @@ extension ProductsCollesctionViewController: UICollectionViewDelegate {
             cell.setup(model: params, stack: stack )
             cell.didTapFavorite = { [weak self] in
                 self?.presenter.didTapFavorite(model: product)
+            }
+
+            cell.didTapAddCart = { [weak self] in
+                self?.presenter.didTapAddCart(model: product)
             }
             
             return cell

@@ -2,7 +2,7 @@
 //  ProductsCollesctionRouter.swift
 //  WOOWProjectVIPER
 //
-//  Created by Mosneag Gheorghe on 08/08/2022.
+//  Created by Mosneag Andrei on 08/08/2022.
 //  Copyright © 2022 Andrei. All rights reserved.
 //
 
@@ -40,12 +40,11 @@ final class ProductsCollesctionRouter: ProductsCollesctionRouterInput {
     
     func showMyCard() {
         let vc = BayViewController.instantiate()
+        let cartModel: [CartModel] = CartManager.shared.getCarts()
+        vc.moduleInput.setup(model: cartModel)
         viewController.navigationController?.pushViewController(vc, animated: true )
     }
+
     
-    
-    
-    
-    
-	weak var viewController: ProductsCollesctionViewController!
+    weak var viewController: ProductsCollesctionViewController!
 }

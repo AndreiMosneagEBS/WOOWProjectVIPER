@@ -2,7 +2,7 @@
 //  ProductsCollesctionPresenter.swift
 //  WOOWProjectVIPER
 //
-//  Created by Mosneag Gheorghe on 08/08/2022.
+//  Created by Mosneag Andrei on 08/08/2022.
 //  Copyright © 2022 Andrei. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ protocol ProductsCollesctionModuleInput: AnyObject {
 
 final class ProductsCollesctionPresenter {
     weak var view: ProductsCollesctionViewInput!
-	
+    
     var interactor: ProductsCollesctionInteractorInput!
     var router: ProductsCollesctionRouterInput!
     var products: [About] = []
@@ -61,6 +61,7 @@ extension ProductsCollesctionPresenter: ProductsCollesctionModuleInput {
 // MARK: - ProductsCollesctionViewOutput
 
 extension ProductsCollesctionPresenter: ProductsCollesctionViewOutput {
+    
     func didTapMyCard() {
         self.router.showMyCard()
     }
@@ -72,6 +73,11 @@ extension ProductsCollesctionPresenter: ProductsCollesctionViewOutput {
     
     func didTapFavorite(model: About) {
         FavoriteManager.shared.saveToFavorite(model: model)
+        generateCells()
+    }
+    
+    func didTapAddCart(model: About) {
+        CartManager.shared.saveToCart(model: model)
         generateCells()
     }
     
@@ -89,8 +95,8 @@ extension ProductsCollesctionPresenter: ProductsCollesctionViewOutput {
         self.router.didTapButtonProfile()
     }
     
-	func viewIsReady() {
-		view.setupInitialState()
+    func viewIsReady() {
+        view.setupInitialState()
         self.baseVC.showHud()
         self.interactor.getProducts(pag: page)
 

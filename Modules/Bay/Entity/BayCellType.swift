@@ -9,5 +9,6 @@
 import Foundation
 
 enum BayCellType {
-    case poductBay
+    case poductBay(model: CartModel)
 }
+

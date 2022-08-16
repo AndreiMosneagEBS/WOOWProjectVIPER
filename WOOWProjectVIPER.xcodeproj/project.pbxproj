@@ -53,6 +53,9 @@
 		8E26E1FB2893CD4300AEB5B7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E1FA2893CD4300AEB5B7 /* Extension.swift */; };
 		8E26E1FF2894103200AEB5B7 /* ImageProductCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E1FD2894103200AEB5B7 /* ImageProductCVC.swift */; };
 		8E26E2002894103200AEB5B7 /* ImageProductCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E26E1FE2894103200AEB5B7 /* ImageProductCVC.xib */; };
+		8E5A38F628AA23AA00029591 /* CartManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A38F528AA23AA00029591 /* CartManager .swift */; };
+		8E5A38F828AA23E500029591 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A38F728AA23E500029591 /* CartModel.swift */; };
+		8E5A38FA28AA2EBA00029591 /* ButtonCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A38F928AA2EBA00029591 /* ButtonCart.swift */; };
 		8E670F6C289163A500244135 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E670F6B289163A500244135 /* BaseVC.swift */; };
 		8E728A42289C0E4E003B07F7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E728A41289C0B43003B07F7 /* UserSession.swift */; };
 		8E78E1C82892C7CD008B4A7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1C72892C7CD008B4A7A /* Models.swift */; };
@@ -157,6 +160,9 @@
 		8E26E1FA2893CD4300AEB5B7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8E26E1FD2894103200AEB5B7 /* ImageProductCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProductCVC.swift; sourceTree = "<group>"; };
 		8E26E1FE2894103200AEB5B7 /* ImageProductCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageProductCVC.xib; sourceTree = "<group>"; };
+		8E5A38F528AA23AA00029591 /* CartManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartManager .swift"; sourceTree = "<group>"; };
+		8E5A38F728AA23E500029591 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		8E5A38F928AA2EBA00029591 /* ButtonCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCart.swift; sourceTree = "<group>"; };
 		8E670F6B289163A500244135 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8E728A41289C0B43003B07F7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8E78E1C62892C7A4008B4A7A /* WOOWProjectVIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOWProjectVIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -428,6 +434,7 @@
 			children = (
 				8E78E1C72892C7CD008B4A7A /* Models.swift */,
 				8EE4D8CB28A3F8CB0000B327 /* FavoriteModel.swift */,
+				8E5A38F728AA23E500029591 /* CartModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				8EE4D8C928A3F6FC0000B327 /* FavoriteManager.swift */,
+				8E5A38F528AA23AA00029591 /* CartManager .swift */,
 			);
 			path = RealService;
 			sourceTree = "<group>";
@@ -498,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				074A02965FAB48A3D098438A /* ProductsCollesctionCellType.swift */,
+				8E5A38F928AA2EBA00029591 /* ButtonCart.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -694,6 +703,7 @@
 				8E670F6C289163A500244135 /* BaseVC.swift in Sources */,
 				8EB7593F28994E0900E4C233 /* ImageCVC.swift in Sources */,
 				64908A3E81F3935505D262C6 /* HomePresenter.swift in Sources */,
+				8E5A38F628AA23AA00029591 /* CartManager .swift in Sources */,
 				64413812A84DE1D33C9448F3 /* HomeInteractor.swift in Sources */,
 				8E78E1CA2892CC21008B4A7A /* Request.swift in Sources */,
 				D46E8B4B95EE286C7A8AFB74 /* HomeRouter.swift in Sources */,
@@ -712,6 +722,7 @@
 				8E728A42289C0E4E003B07F7 /* UserSession.swift in Sources */,
 				8C9D2AAD8993B670AC115B65 /* DetailsPresenter.swift in Sources */,
 				CF9492CF0761B4C2385901B8 /* DetailsInteractor.swift in Sources */,
+				8E5A38FA28AA2EBA00029591 /* ButtonCart.swift in Sources */,
 				415317207D6718014B3626D9 /* DetailsRouter.swift in Sources */,
 				D7D7E1D31DF0D04BB7E5456A /* DetailsConfigurator.swift in Sources */,
 				B16F205B864687938EDDA1D0 /* ImageViewController.swift in Sources */,
@@ -735,6 +746,7 @@
 				8C93BB5BA655E057B85491E2 /* LoginPresenter.swift in Sources */,
 				EB2F5CFFE4F0FFA664A11AFF /* LoginInteractor.swift in Sources */,
 				4FC6B01B039BBB31684F6543 /* LoginRouter.swift in Sources */,
+				8E5A38F828AA23E500029591 /* CartModel.swift in Sources */,
 				CA30C506CC3BCE82394CAA54 /* LoginConfigurator.swift in Sources */,
 				229682D7A15ED86263CD580C /* ProductsCollesctionCellType.swift in Sources */,
 				6A6AE7C9332D9E23F32D1824 /* ProductsCollesctionViewController.swift in Sources */,

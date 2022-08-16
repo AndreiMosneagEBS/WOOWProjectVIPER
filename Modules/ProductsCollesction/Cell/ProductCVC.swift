@@ -10,13 +10,15 @@ import UIKit
 class ProductCVC: UICollectionViewCell {
     
     var didTapFavorite: (() -> Void)?
+    var didTapAddCart: (() -> Void)?
+    private let colorBlue = UIColor(red: 0.03, green: 0.1, blue: 0.36, alpha: 1.0)
     
-    override open var isSelected: Bool {
-        didSet {
-            self.backgroundColor = isSelected ? UIColor(r: 0.03, g:  0.1, b: 0.36) : UIColor.white
-            self.tintColor = isSelected ? UIColor.white : UIColor(r: 0.03, g:  0.1, b: 0.36)
-        }
-    }
+//    override open var isSelected: Bool {
+//        didSet {
+//            self.backgroundColor = isSelected ? UIColor(r: 0.03, g:  0.1, b: 0.36) : UIColor.white
+//            self.tintColor = isSelected ? UIColor.white : UIColor(r: 0.03, g:  0.1, b: 0.36)
+//        }
+//    }
 
     
     @IBOutlet weak var imageProduct: UIImageView!
@@ -40,11 +42,7 @@ class ProductCVC: UICollectionViewCell {
         favoriteButton.setImage(UIImage(named: "heartFull"), for: .selected)
         favoriteButton.setImage(UIImage(named: "heartEmpty-1"), for: .normal)
         
-        saleButton.cornerRadius = saleButton.frame.width / 2
-        saleButton.setBackgroundColor(UIColor(red: 0.03, green: 0.1, blue: 0.36, alpha: 1.0), for: .selected)
-        saleButton.setTitleColor(.white, for: .selected)
-        saleButton.setBackgroundColor(.red, for: .normal)
-        saleButton.setTitleColor(UIColor(red: 0.03, green: 0.1, blue: 0.36, alpha: 1.0), for: .normal)
+        
     }
     
     
@@ -58,11 +56,12 @@ class ProductCVC: UICollectionViewCell {
     }
     
     func setup(model: Params, stack: Bool) {
-        
         nameProduct.text = model.name
         aboutProduct.text = model.size
         let isFavorite = FavoriteManager.shared.checkFavorite(id: model.id)
         favoriteButton.isSelected = isFavorite
+        let isCart = CartManager.shared.checkCart(id: model.id)
+        saleButton.isSelected = isCart
         priceProduct.text = "\(model.pice)"
         saleProduct.text = "\(model.pice)"
         imageProduct.setImage(with: model.image )
@@ -86,7 +85,8 @@ class ProductCVC: UICollectionViewCell {
     }
     
    
-    
-    
-
+    @IBAction func cartButtonAction(_ sender: Any) {
+        didTapAddCart?()
+       
+    }
 }

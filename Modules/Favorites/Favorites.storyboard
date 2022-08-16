@@ -148,6 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="uJx-Qv-vjS" id="FkN-Ci-WPP"/>
+                        <outlet property="coutLabel" destination="bu9-pS-hrH" id="Fae-la-Aeh"/>
                         <outlet property="viewLabel" destination="fm8-YU-hTx" id="K3f-xV-8Yg"/>
                     </connections>
                 </viewController>
