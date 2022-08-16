@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol BayModuleInput: AnyObject {
     func setup(model: [CartModel])
@@ -15,8 +16,11 @@ protocol BayModuleInput: AnyObject {
 final class BayPresenter {
     weak var view: BayViewInput!
     
+    
     var interactor: BayInteractorInput!
     var router: BayRouterInput!
+    var countProduct = 1
+    var priceProd = 0
     
     private var cartProducts: [CartModel] = []
     
@@ -50,13 +54,34 @@ extension BayPresenter: BayModuleInput {
 // MARK: - BayViewOutput
 
 extension BayPresenter: BayViewOutput {
+    func returnPrice() -> Int {
+        let sum = cartProducts.map{$0.price}
+        return priceProd          
+        
+    }
+    
+    func totalPriceCout(price: Int) {
+       priceProd =  price
+        
+    }
+    
+    
+    func getTotalPrice() -> Int {
+        return countProduct
+    }
+    
+    
+    
     func didTapPlus(productId: Int) {
         guard let index = cartProducts.firstIndex(where: { $0.id == productId }) else {
             return
         }
-        
         let oldCount = cartProducts[index].count
-        cartProducts[index].count = oldCount + 1
+        
+         try? CartManager.shared.realm.write({
+           cartProducts[index].count = oldCount + 1
+        })
+        countProduct = oldCount
         
         generateCells()
     }
@@ -67,13 +92,15 @@ extension BayPresenter: BayViewOutput {
         }
         
         let oldCount = cartProducts[index].count
-        
-        if oldCount == 0 {
+        if oldCount == 1 {
             return
         }
         
-        cartProducts[index].count = oldCount - 1
+        try? CartManager.shared.realm.write({
+          cartProducts[index].count = oldCount - 1
+       })
         
+        countProduct = oldCount
         generateCells()
     }
     

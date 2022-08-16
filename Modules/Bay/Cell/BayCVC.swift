@@ -12,12 +12,12 @@ class BayCVC: UICollectionViewCell {
     var didTapDelete: (() -> Void)?
     var didTapPlus: (() -> Void)?
     var didTapMinus: (() -> Void)?
-    var labelPrice: ((Int) -> Void)?
+    var labelPriceTotal: ((Int) -> Void)?
     
     
-    var priceProdcut: Int = 2
-    
-    var countlabel = 2
+    var priceProduct: Int = 0
+    var countProduct = 0
+    var total: Int = 0
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -56,15 +56,19 @@ class BayCVC: UICollectionViewCell {
         
     }
     
-    func setup(params: Params) {
+    func setup(params: Params, count: Int) {
         name.text = params.name
         size.text = params.size
         price.text = String(params.price)
         priceSale.text = String(params.priceSale)
         image.setImage(with: params.image)
         labelCoutProduct.text = String(params.count)
-        priceProdcut = params.price
+        priceProduct = params.price
+        countProduct = count
+        total = priceProduct * countProduct
     }
+    
+    
     
     @IBAction func deleteProductCartAction(_ sender: Any) {
         didTapDelete?()
@@ -73,26 +77,12 @@ class BayCVC: UICollectionViewCell {
     
     
     @IBAction func plusProduct(_ sender: Any) {
-//        labelPrice!(countlabel * priceProdcut)
         didTapPlus?()
-//        if countlabel >= 999 {
-//            labelCoutProduct.text = "999"
-//        } else {
-//            countlabel += 1
-//
-//        }
+        labelPriceTotal!(total)
     }
     
     @IBAction func minusProduct(_ sender: Any) {
-//        labelPrice!(countlabel * priceProdcut)
         didTapMinus?()
-//        if countlabel <= 1 {
-//            
-//            labelCoutProduct.text = "1"
-//        } else {
-//            countlabel -= 1
-//        }
-        
     }
     
 }

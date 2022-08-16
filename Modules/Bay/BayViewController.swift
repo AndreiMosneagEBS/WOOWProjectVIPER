@@ -19,6 +19,9 @@ protocol BayViewOutput {
     func didTapDeleteProduct(id: Int)
     func didTapPlus(productId: Int)
     func didTapMinus(productId: Int)
+    func totalPriceCout(price: Int)
+    func getTotalPrice() -> Int
+    func returnPrice() -> Int
 }
 
 final class BayViewController: BaseVC, StoryboardInstantiable {
@@ -63,6 +66,7 @@ final class BayViewController: BaseVC, StoryboardInstantiable {
     
     func setButton() {
         viewLabel.cornerRadius = viewLabel.frame.width / 2
+    
         
     }
 }
@@ -88,7 +92,8 @@ extension BayViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        total.text = String(priceTotal)
+        total.text = String(self.presenter.returnPrice())
+    
         return cells.count
     }
 }
@@ -107,7 +112,8 @@ extension BayViewController: UICollectionViewDelegate {
                                               priceSale: product.price,
                                               image: product.image,
                                               count: product.count)
-            cell.setup(params: params)
+            
+            cell.setup(params: params, count: self.presenter.getTotalPrice())
             cell.didTapPlus = { [weak self] in
                 self?.presenter.didTapPlus(productId: product.id)
             }
@@ -117,9 +123,9 @@ extension BayViewController: UICollectionViewDelegate {
             cell.didTapDelete = { [weak self] in
                 self?.presenter.didTapDeleteProduct(id: product.id)
             }
-            
-            cell.labelPrice = { [weak self] price in
-                self!.priceTotal = price
+            cell.labelPriceTotal = { [weak self] totalPiceProduct in
+                self?.presenter.totalPriceCout(price: totalPiceProduct)
+                self?.priceTotal = totalPiceProduct
             }
             
             return cell
