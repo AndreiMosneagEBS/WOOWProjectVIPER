@@ -55,8 +55,9 @@ extension BayPresenter: BayModuleInput {
 
 extension BayPresenter: BayViewOutput {
     func returnPrice() -> Int {
-        let sum = cartProducts.map{$0.price}
-        return priceProd          
+//        let sum = cartProducts.map{$0.price}
+        UserSession.share.countProduct = cartProducts.count
+        return cartProducts.count
         
     }
     
@@ -82,8 +83,8 @@ extension BayPresenter: BayViewOutput {
            cartProducts[index].count = oldCount + 1
         })
         countProduct = oldCount
-        
         generateCells()
+        
     }
     
     func didTapMinus(productId: Int) {
@@ -99,7 +100,7 @@ extension BayPresenter: BayViewOutput {
         try? CartManager.shared.realm.write({
           cartProducts[index].count = oldCount - 1
        })
-        
+
         countProduct = oldCount
         generateCells()
     }
@@ -107,6 +108,7 @@ extension BayPresenter: BayViewOutput {
     func didTapDeleteProduct(id: Int) {
         try? CartManager.shared.delete(id: id)
         self.cartProducts = CartManager.shared.getCarts()
+
         generateCells()
     }
     

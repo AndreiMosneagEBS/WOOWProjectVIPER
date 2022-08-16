@@ -62,8 +62,8 @@ class ProductCVC: UICollectionViewCell {
         favoriteButton.isSelected = isFavorite
         let isCart = CartManager.shared.checkCart(id: model.id)
         saleButton.isSelected = isCart
-        priceProduct.text = "\(model.pice)"
-        saleProduct.text = "\(model.pice)"
+        priceProduct.text = "$ \(model.pice),-"
+        saleProduct.text = "$ \(model.pice),-"
         imageProduct.setImage(with: model.image )
         
         if stack {

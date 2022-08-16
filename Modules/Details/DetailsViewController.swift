@@ -93,8 +93,8 @@ extension DetailsViewController: DetailsViewInput {
         nameProduct.text = productDetails?.name
         sizeProduct.text = productDetails?.size
         if let price = productDetails?.price {
-            priceProduct.text = String(price)
-            saleProduct.text = String(price)
+            priceProduct.text = "$ \(String(price)),-"
+            saleProduct.text = "$ \(String(price)),-"
         }
         detailProduct.text = productDetails?.details
         collectionView.reloadData()

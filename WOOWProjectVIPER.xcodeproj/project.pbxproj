@@ -56,6 +56,7 @@
 		8E5A38F628AA23AA00029591 /* CartManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A38F528AA23AA00029591 /* CartManager .swift */; };
 		8E5A38F828AA23E500029591 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A38F728AA23E500029591 /* CartModel.swift */; };
 		8E5A38FA28AA2EBA00029591 /* ButtonCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A38F928AA2EBA00029591 /* ButtonCart.swift */; };
+		8E5A38FD28ABB93C00029591 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E5A38FC28ABB93C00029591 /* OpenSans.ttf */; };
 		8E670F6C289163A500244135 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E670F6B289163A500244135 /* BaseVC.swift */; };
 		8E728A42289C0E4E003B07F7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E728A41289C0B43003B07F7 /* UserSession.swift */; };
 		8E78E1C82892C7CD008B4A7A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78E1C72892C7CD008B4A7A /* Models.swift */; };
@@ -163,6 +164,7 @@
 		8E5A38F528AA23AA00029591 /* CartManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartManager .swift"; sourceTree = "<group>"; };
 		8E5A38F728AA23E500029591 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		8E5A38F928AA2EBA00029591 /* ButtonCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCart.swift; sourceTree = "<group>"; };
+		8E5A38FC28ABB93C00029591 /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpenSans.ttf; sourceTree = "<group>"; };
 		8E670F6B289163A500244135 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8E728A41289C0B43003B07F7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8E78E1C62892C7A4008B4A7A /* WOOWProjectVIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOWProjectVIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -367,6 +369,7 @@
 		8E22CA2E288E713100D7A5A3 = {
 			isa = PBXGroup;
 			children = (
+				8E5A38FB28ABB92600029591 /* Fonts */,
 				8EE4D8C828A3F6C50000B327 /* RealService */,
 				8E78E1D02893CC36008B4A7A /* Extension */,
 				8E78E1C22892C65F008B4A7A /* Network */,
@@ -417,6 +420,14 @@
 			children = (
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8E5A38FB28ABB92600029591 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E5A38FC28ABB93C00029591 /* OpenSans.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		8E78E1C22892C65F008B4A7A /* Network */ = {
@@ -625,6 +636,7 @@
 				8EB7594028994E0900E4C233 /* ImageCVC.xib in Resources */,
 				8E22CA47288E713200D7A5A3 /* LaunchScreen.storyboard in Resources */,
 				8E22CA44288E713200D7A5A3 /* Assets.xcassets in Resources */,
+				8E5A38FD28ABB93C00029591 /* OpenSans.ttf in Resources */,
 				8E2374EB28912C33000E0FF0 /* GoogleService-Info.plist in Resources */,
 				8E22CA42288E713200D7A5A3 /* Main.storyboard in Resources */,
 				81E0D6A4F7E3A78DF92082A7 /* Home.storyboard in Resources */,

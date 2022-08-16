@@ -14,5 +14,6 @@ class UserSession {
     var name: String?
     var image: UIImage?
     var email: String?
+    var countProduct: Int = 6
     
 }

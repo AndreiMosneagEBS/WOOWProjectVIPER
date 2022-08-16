@@ -68,7 +68,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uJx-Qv-vjS">
                                 <rect key="frame" x="0.0" y="152" width="414" height="744"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="night"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DSl-4A-FSr">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -121,15 +121,18 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fx-fn-I69">
-                                        <rect key="frame" x="0.0" y="16.5" width="82.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="17" width="81" height="30.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="filter" title="Filters" imagePadding="8"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="filter" title="Filters" imagePadding="8">
+                                            <fontDescription key="titleFontDescription" name="OpenSansRoman-Bold" family="Open Sans" pointSize="12"/>
+                                            <color key="baseForegroundColor" name="writeColorText"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="filterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7x-gf-ChM"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="colorBorder"/>
                                 <constraints>
                                     <constraint firstItem="8Fx-fn-I69" firstAttribute="leading" secondItem="ncc-0O-yhN" secondAttribute="leading" id="HtQ-i9-A3k"/>
                                     <constraint firstItem="8Fx-fn-I69" firstAttribute="centerY" secondItem="ncc-0O-yhN" secondAttribute="centerY" id="JWC-OH-Ghg"/>
@@ -181,7 +184,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="night"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="TGv-tC-oDh" secondAttribute="trailing" id="AJ6-Z2-SiU"/>
                                                             <constraint firstItem="TGv-tC-oDh" firstAttribute="top" secondItem="nw5-Sh-HQY" secondAttribute="top" id="FLu-ho-gUM"/>
@@ -200,6 +203,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" name="night"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="F0h-dB-8Lq"/>
                                         </constraints>
@@ -238,6 +242,7 @@
                         <outlet property="collectionView" destination="uJx-Qv-vjS" id="HyK-x5-tWj"/>
                         <outlet property="gridButton" destination="mZI-pK-sOf" id="x2X-yZ-1h6"/>
                         <outlet property="imageSale" destination="Z4l-Gk-tcY" id="tM5-We-42n"/>
+                        <outlet property="labelCout" destination="TGv-tC-oDh" id="EgM-JU-27N"/>
                         <outlet property="listButton" destination="Igi-0p-uLn" id="5Dy-s9-bhX"/>
                         <outlet property="uiViewBack" destination="ziV-Ho-Ade" id="Fp1-Ha-LbI"/>
                         <outlet property="uiViewCount" destination="nw5-Sh-HQY" id="Uma-Ja-NrE"/>
@@ -258,6 +263,15 @@
         <image name="user" width="32" height="32"/>
         <namedColor name="bgColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="colorBorder">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="night">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="writeColorText">
+            <color red="0.055649220940000001" green="0.1034074202" blue="0.37563240530000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

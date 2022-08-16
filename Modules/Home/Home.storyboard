@@ -142,7 +142,7 @@ WOW!</string>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="bgColor"/>
+                        <color key="backgroundColor" name="night"/>
                         <constraints>
                             <constraint firstItem="MV5-kU-QvF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3Sd-wK-rHc"/>
                             <constraint firstItem="aoI-6r-zff" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5H0-SF-pdS"/>
@@ -186,8 +186,8 @@ WOW!</string>
         <image name="apple" width="32" height="32"/>
         <image name="facebook" width="32" height="32"/>
         <image name="google" width="32" height="32"/>
-        <namedColor name="bgColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="night">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="tintColor">
             <color red="0.071000002324581146" green="0.067000001668930054" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

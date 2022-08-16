@@ -53,8 +53,8 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
     @IBOutlet weak var imageSale: UIImageView!
     @IBOutlet weak var uiViewCount: UIView!
     @IBOutlet weak var uiViewBack: UIView!
+    @IBOutlet weak var labelCout: UILabel!
     
-
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
@@ -147,6 +147,8 @@ extension ProductsCollesctionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        labelCout.text = "\(UserSession.share.countProduct ?? 0) "
+        
         return cells.count
     }
 }

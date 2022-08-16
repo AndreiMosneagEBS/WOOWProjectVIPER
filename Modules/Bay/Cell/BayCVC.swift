@@ -83,6 +83,7 @@ class BayCVC: UICollectionViewCell {
     
     @IBAction func minusProduct(_ sender: Any) {
         didTapMinus?()
+        labelPriceTotal!(total)
     }
     
 }
