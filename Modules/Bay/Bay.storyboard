@@ -252,6 +252,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="uJx-Qv-vjS" id="HyK-x5-tWj"/>
+                        <outlet property="coutPoductSale" destination="57g-rS-vX0" id="TxP-L1-xwC"/>
                         <outlet property="deliveri" destination="bWB-in-YTL" id="tlG-x6-qH7"/>
                         <outlet property="priceProduct" destination="1Zb-Di-qX1" id="8j5-98-zGg"/>
                         <outlet property="total" destination="3j0-PV-Ksg" id="4Yu-Qn-X7y"/>

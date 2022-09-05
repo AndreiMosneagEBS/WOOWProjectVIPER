@@ -14,6 +14,12 @@ struct CartManager {
     
     let realm = try! Realm()
     
+    
+    
+    func observerChange() {
+        
+    }
+    
     func saveToCart(model: About) {
         if checkCart(id: model.id ?? 0 ) {
             try? delete(id: model.id ?? 0)
@@ -49,7 +55,9 @@ struct CartManager {
                                                 price: model.price ?? 0,
                                                 priceSale: model.price ?? 0,
                                                 image: model.mainImage ?? "",
-                                                count: 1)
+                                                count: 1,
+                                                totalPrice: model.price ?? 0
+            )
             realm.add(favorite)
         })
     }
@@ -57,5 +65,10 @@ struct CartManager {
     func getCarts() -> [CartModel] {
         let result = realm.objects(CartModel.self)
         return Array(result)
+    }
+    
+    func countCart() -> Int {
+        let count = realm.objects(CartModel.self).count
+        return count
     }
 }

@@ -96,7 +96,6 @@ extension About: Comparable {
     static func == (lhs: About, rhs: About) -> Bool {
         return true
     }
-    
    
     static func <(lhs: About, rhs: About) -> Bool {
         return lhs.price! < rhs.price!

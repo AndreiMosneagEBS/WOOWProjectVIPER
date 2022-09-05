@@ -56,7 +56,7 @@ class BayCVC: UICollectionViewCell {
         
     }
     
-    func setup(params: Params, count: Int) {
+    func setup(params: Params) {
         name.text = params.name
         size.text = params.size
         price.text = String(params.price)
@@ -64,7 +64,6 @@ class BayCVC: UICollectionViewCell {
         image.setImage(with: params.image)
         labelCoutProduct.text = String(params.count)
         priceProduct = params.price
-        countProduct = count
         total = priceProduct * countProduct
     }
     

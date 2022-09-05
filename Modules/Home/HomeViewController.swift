@@ -14,7 +14,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 protocol HomeViewInput: AnyObject {
-	func setupInitialState()
+    func setupInitialState()
     func googleLogin()
 }
 
@@ -24,13 +24,13 @@ protocol HomeViewOutput {
     func didTapFacebookLogin()
     func didTapAppleLogin()
     func didTapGuest()
-
-
+    
+    
 }
 
 final class HomeViewController: BaseVC, StoryboardInstantiable {
-	static var storyboardName: String = "Home"
-	
+    static var storyboardName: String = "Home"
+    
     var presenter: HomeViewOutput!
     var moduleInput: HomeModuleInput!
     
@@ -39,36 +39,34 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
     @IBOutlet weak var loginApple: UIButton!
     @IBOutlet weak var asGuest: UIButton!
     
-
+    
     // MARK: Object lifecycle
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         if presenter == nil {
-        	HomeViewController.configureVIPERModule(for: self)
-		}
+            HomeViewController.configureVIPERModule(for: self)
+        }
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         if presenter == nil {
-			HomeViewController.configureVIPERModule(for: self)
+            HomeViewController.configureVIPERModule(for: self)
         }
     }
-
+    
     // MARK: View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewIsReady()
-       
+        
     }
     
     @IBAction func googleLoginAction(_ sender: UIButton) {
-//        let signInConfig = GIDConfiguration.init(clientID: "958729113915-kbifijitve5ffr6volduab18r2v4dabk.apps.googleusercontent.com")
-//        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self)
         self.presenter.didTapGoogleLogin()
     }
     
@@ -84,20 +82,16 @@ final class HomeViewController: BaseVC, StoryboardInstantiable {
     @IBAction func loginAsGuestAction(_ sender: Any) {
         self.presenter.didTapGuest()
     }
-    
-    
-    
-    
 }
 
 // MARK: - HomeViewInput
 
 extension HomeViewController: HomeViewInput {
     func googleLogin() {
-       
+        
     }
     
-	func setupInitialState() {
-
+    func setupInitialState() {
+        
     }
 }

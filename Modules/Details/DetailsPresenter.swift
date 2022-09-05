@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol DetailsModuleInput: AnyObject {
-    func setup(productID: Int)
+    func setup(productID: About)
 }
 
 final class DetailsPresenter {
@@ -20,6 +21,7 @@ final class DetailsPresenter {
     
     private var productDetails: ProductDetails?
     private var productID: Int?
+    private var model: About?
     private var baseVC: BaseVC {
         guard let baseVC = view as? BaseVC else {
             fatalError("ViewController was not inherited from BaseVC")
@@ -31,8 +33,9 @@ final class DetailsPresenter {
 // MARK: - DetailsModuleInput
 
 extension DetailsPresenter: DetailsModuleInput {
-    func setup(productID: Int) {
-        self.productID = productID
+    func setup(productID: About) {
+        self.productID = productID.id
+        self.model = productID
     }
     
 
@@ -41,6 +44,12 @@ extension DetailsPresenter: DetailsModuleInput {
 // MARK: - DetailsViewOutput
 
 extension DetailsPresenter: DetailsViewOutput {
+    func didTapAddToCard() {
+        if let model = model{
+            CartManager.shared.saveToCart(model: model)            
+        }
+    }
+    
     func didTapOnImage(model: String?) {
         router.didTapImage(image: model)
     }

@@ -20,7 +20,6 @@ struct FavoriteManager {
         } else {
             try? add(model: model)
         }
-        
     }
     
     func checkFavorite(id: Int) -> Bool {

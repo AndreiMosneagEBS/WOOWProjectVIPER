@@ -21,8 +21,13 @@ final class BayPresenter {
     var router: BayRouterInput!
     var countProduct = 1
     var priceProd = 0
-    
+    var tPrice: [Int : Int] = [:]
     private var cartProducts: [CartModel] = []
+    private var totalCountProd = 0
+    private var productNotoficationToken: NotificationToken?
+    private var realm: Realm {
+        try! Realm()
+    }
     
     private var baseVC: BaseVC {
         guard let baseVC = view as? BaseVC else {
@@ -41,11 +46,33 @@ final class BayPresenter {
         view.didUpdateCollectionStructure(cells: cells)
     }
     
+    func generateFinalPrice()-> Int {
+        var totalPrice: Int = 0
+        cartProducts.forEach({totalPrice += $0.totalPrice})
+        return totalPrice
+        
+    }
+    
+    private func notificationChange() {
+        let productCart = realm.objects(CartModel.self)
+        productNotoficationToken = productCart.observe{ [self] change in
+            switch change {
+            case .initial(_):
+                self.view.updateCardOfCount(count: CartManager.shared.countCart())
+            case .update:
+                print(CartManager.shared.countCart())
+//                self.view.updateCardOfCount(count: CartManager.shared.countCart())
+            case .error(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 // MARK: - BayModuleInput
 
 extension BayPresenter: BayModuleInput {
+    
     func setup(model: [CartModel]) {
         self.cartProducts = model
     }
@@ -54,24 +81,12 @@ extension BayPresenter: BayModuleInput {
 // MARK: - BayViewOutput
 
 extension BayPresenter: BayViewOutput {
-    func returnPrice() -> Int {
-//        let sum = cartProducts.map{$0.price}
-        UserSession.share.countProduct = cartProducts.count
-        return cartProducts.count
-        
-    }
+    
     
     func totalPriceCout(price: Int) {
-       priceProd =  price
+        priceProd =  price
         
     }
-    
-    
-    func getTotalPrice() -> Int {
-        return countProduct
-    }
-    
-    
     
     func didTapPlus(productId: Int) {
         guard let index = cartProducts.firstIndex(where: { $0.id == productId }) else {
@@ -79,10 +94,13 @@ extension BayPresenter: BayViewOutput {
         }
         let oldCount = cartProducts[index].count
         
-         try? CartManager.shared.realm.write({
-           cartProducts[index].count = oldCount + 1
+        try? CartManager.shared.realm.write({
+            cartProducts[index].count = oldCount + 1
+            cartProducts[index].totalPrice = cartProducts[index].price * cartProducts[index].count
         })
         countProduct = oldCount
+        tPrice[cartProducts[index].price] = oldCount
+        view.setTotalPrice(price: generateFinalPrice())
         generateCells()
         
     }
@@ -98,28 +116,38 @@ extension BayPresenter: BayViewOutput {
         }
         
         try? CartManager.shared.realm.write({
-          cartProducts[index].count = oldCount - 1
-       })
-
+            cartProducts[index].count = oldCount - 1
+            cartProducts[index].totalPrice = cartProducts[index].price * cartProducts[index].count
+        })
+        
         countProduct = oldCount
+        tPrice[cartProducts[index].price] = oldCount
+        view.setTotalPrice(price: generateFinalPrice())
         generateCells()
+        
     }
     
     func didTapDeleteProduct(id: Int) {
         try? CartManager.shared.delete(id: id)
         self.cartProducts = CartManager.shared.getCarts()
-
+        view.setTotalPrice(price: generateFinalPrice())
         generateCells()
     }
     
     func viewIsReady() {
         view.setupInitialState()
         generateCells()
+        view.setTotalPrice(price: generateFinalPrice())
+        self.notificationChange()
     }
+    
+    
+    
+    
 }
 
 // MARK: - BayInteractorOutput
 
 extension BayPresenter: BayInteractorOutput {
-
+    
 }

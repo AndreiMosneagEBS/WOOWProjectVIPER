@@ -217,8 +217,8 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpq-R0-kRi" userLabel="ADD TO CART">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="40"/>
-                                        <color key="backgroundColor" red="0.02745098248" green="0.098039209840000002" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="writeColorText"/>
+                                        <color key="tintColor" name="blueColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="ADD TO CART"/>
                                         <userDefinedRuntimeAttributes>
@@ -226,6 +226,9 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addToCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHm-ag-KHd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFE-y4-JQH">
                                         <rect key="frame" x="195" y="0.0" width="187" height="40"/>
@@ -284,14 +287,17 @@
         <namedColor name="bgColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="blueColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="night">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="writeColorText">
-            <color red="0.055649220940000001" green="0.1034074202" blue="0.37563240530000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.056000001728534698" green="0.10300000011920929" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="writeColordescription">
-            <color red="0.25222170350000001" green="0.2920388579" blue="0.34027117489999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.25200000405311584" green="0.29199999570846558" blue="0.34000000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

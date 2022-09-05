@@ -26,7 +26,6 @@ final class DetailsInteractor: DetailsInteractorInput {
         Request.shared.getDetails(id: id) { results in
             switch results {
             case .success(let product):
-                print(product)
                 self.output.didFetchProductSuccess(product: product)
             case .failure(let error):
                 self.output.didFetchProductError(error: error)

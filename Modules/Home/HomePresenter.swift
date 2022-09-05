@@ -49,7 +49,6 @@ extension HomePresenter: HomeViewOutput {
         self.router.didTapGuest()
     }
     
-    
     func didTapGoogleLogin() {
         let config = GIDConfiguration.init(clientID: "958729113915-kbifijitve5ffr6volduab18r2v4dabk.apps.googleusercontent.com")
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self.baseVC) { user, error in
@@ -137,6 +136,5 @@ extension HomePresenter: HomeInteractorOutput {
     }
     
     func didLoginGoogleFailure(error: Error) {
-//        print(T##items: Any...##Any)
     }
 }

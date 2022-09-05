@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol ProductsCollesctionModuleInput: AnyObject {
 
@@ -23,6 +24,7 @@ final class ProductsCollesctionPresenter {
     var isPageRefreshing:Bool = false
     var totalPages: Int = 0
     var cells: [ProductsCollesctionCellType] = []
+    private var productNotoficationToken: NotificationToken?
     private var isDescSort: Bool = true {
         willSet {
             if newValue {
@@ -32,6 +34,9 @@ final class ProductsCollesctionPresenter {
                 products.sort(by: < )
             }
         }
+    }
+    private var realm: Realm {
+        try! Realm()
     }
     
     private var baseVC: BaseVC {
@@ -49,6 +54,25 @@ final class ProductsCollesctionPresenter {
         }
         view.didUpdateCollectionStructure(cells: cells)
     }
+    
+    
+    private func notificationChange() {
+        let productCart = realm.objects(CartModel.self)
+        productNotoficationToken = productCart.observe{ [self] change in
+            switch change {
+            case .initial(_):
+                self.view.updateCartCount(count: String(CartManager.shared.countCart()))
+            case .update:
+                self.view.updateCartCount(count: String(CartManager.shared.countCart()))
+            case .error(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
+    
+    
 }
 
 
@@ -99,6 +123,7 @@ extension ProductsCollesctionPresenter: ProductsCollesctionViewOutput {
         view.setupInitialState()
         self.baseVC.showHud()
         self.interactor.getProducts(pag: page)
+        self.notificationChange()
 
     }
     

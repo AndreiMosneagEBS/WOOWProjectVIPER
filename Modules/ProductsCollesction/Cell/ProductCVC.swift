@@ -45,7 +45,6 @@ class ProductCVC: UICollectionViewCell {
         
     }
     
-    
     struct Params {
         var id: Int
         var name: String

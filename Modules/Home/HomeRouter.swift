@@ -23,10 +23,7 @@ final class HomeRouter: HomeRouterInput {
         viewController.navigationController?.pushViewController(vc, animated: true )
     }
     
-    
-   
     func didTapLogIn() {
-        
         let vc = ProductsCollesctionViewController.instantiate()
         viewController.navigationController?.pushViewController(vc, animated: true )
     }

@@ -18,9 +18,12 @@ class CartModel: Object {
     @Persisted var priceSale: Int
     @Persisted var image: String = ""
     @Persisted var count: Int = 1
+    @Persisted var totalPrice: Int = 0
 
     
-    convenience init(id: Int, name: String, size: String, price: Int, priceSale: Int, image: String, count: Int) {
+
+    
+    convenience init(id: Int, name: String, size: String, price: Int, priceSale: Int, image: String, count: Int, totalPrice: Int) {
         self.init()
         self.id = id
         self.name = name
@@ -28,7 +31,7 @@ class CartModel: Object {
         self.price = price
         self.priceSale = price
         self.image = image
-        
+        self.totalPrice = totalPrice
         if count > 1 {
             self.count = count
         }

@@ -26,9 +26,10 @@ final class ProductsCollesctionRouter: ProductsCollesctionRouterInput {
     
     func didTapCell(model: About) {
         let vc = DetailsViewController.instantiate()
-        if let id = model.id {
-            vc.moduleInput.setup(productID: id)
-        }
+        vc.moduleInput.setup(productID: model)
+//        if let id = model.id {
+//            vc.moduleInput.setup(productID: id)
+//        }
         viewController.navigationController?.pushViewController(vc, animated: true )
 
     }

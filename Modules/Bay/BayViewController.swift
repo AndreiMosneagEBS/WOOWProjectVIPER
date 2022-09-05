@@ -12,6 +12,8 @@ import EBSSwiftUtils
 protocol BayViewInput: AnyObject {
     func setupInitialState()
     func didUpdateCollectionStructure(cells: [BayCellType])
+    func setTotalPrice(price: Int)
+    func updateCardOfCount(count: Int)
 }
 
 protocol BayViewOutput {
@@ -20,8 +22,6 @@ protocol BayViewOutput {
     func didTapPlus(productId: Int)
     func didTapMinus(productId: Int)
     func totalPriceCout(price: Int)
-    func getTotalPrice() -> Int
-    func returnPrice() -> Int
 }
 
 final class BayViewController: BaseVC, StoryboardInstantiable {
@@ -31,7 +31,7 @@ final class BayViewController: BaseVC, StoryboardInstantiable {
     var moduleInput: BayModuleInput!
     var coutText: String?
     var priceTotal: Int = 0
-    
+    var coutOfProduct: Int = 0
     private var cells: [BayCellType] = []
     
     // MARK: - Outlets
@@ -41,9 +41,13 @@ final class BayViewController: BaseVC, StoryboardInstantiable {
     @IBOutlet weak var priceProduct: UILabel!
     @IBOutlet weak var deliveri: UILabel!
     @IBOutlet weak var total: UILabel!
+    @IBOutlet weak var coutPoductSale: UILabel!
     
     
     // MARK: - View lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +55,7 @@ final class BayViewController: BaseVC, StoryboardInstantiable {
         configureCollectionView()
         presenter.viewIsReady()
         setButton()
+
     }
     
     // MARK: - Configure
@@ -66,6 +71,7 @@ final class BayViewController: BaseVC, StoryboardInstantiable {
     
     func setButton() {
         viewLabel.cornerRadius = viewLabel.frame.width / 2
+        collectionView.reloadData()
     
         
     }
@@ -74,8 +80,21 @@ final class BayViewController: BaseVC, StoryboardInstantiable {
 // MARK: - BayViewInput
 
 extension BayViewController: BayViewInput {
-    func setupInitialState() {
+    func updateCardOfCount(count: Int) {
+        self.coutPoductSale.text = String(count)
+    }
+    
+    func setTotalPrice(price: Int) {
+        priceProduct.text = "\(String(price)) $"
+        if priceProduct.text == "0 $" {
+            deliveri.text = "0 $"
+        } else {
+            deliveri.text = "250 $"
+        }
+        total.text = "\(String(price + 250)) $"
+    }
         
+    func setupInitialState() {
     }
     
     func didUpdateCollectionStructure(cells: [BayCellType]) {
@@ -92,8 +111,6 @@ extension BayViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        total.text = String(self.presenter.returnPrice())
-    
         return cells.count
     }
 }
@@ -113,7 +130,7 @@ extension BayViewController: UICollectionViewDelegate {
                                               image: product.image,
                                               count: product.count)
             
-            cell.setup(params: params, count: self.presenter.getTotalPrice())
+            cell.setup(params: params)
             cell.didTapPlus = { [weak self] in
                 self?.presenter.didTapPlus(productId: product.id)
             }
@@ -127,7 +144,6 @@ extension BayViewController: UICollectionViewDelegate {
                 self?.presenter.totalPriceCout(price: totalPiceProduct)
                 self?.priceTotal = totalPiceProduct
             }
-            
             return cell
         }
     }

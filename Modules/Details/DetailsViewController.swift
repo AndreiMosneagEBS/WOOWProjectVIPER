@@ -10,7 +10,7 @@ import UIKit
 import EBSSwiftUtils
 
 protocol DetailsViewInput: AnyObject {
-	func setupInitialState()
+    func setupInitialState()
     func setup(model: ProductDetails)
     
 }
@@ -19,6 +19,7 @@ protocol DetailsViewOutput {
     
     func viewIsReady()
     func didTapOnImage(model: String?)
+    func didTapAddToCard()
     
 }
 
@@ -46,27 +47,27 @@ final class DetailsViewController: BaseVC, StoryboardInstantiable {
     
     var presenter: DetailsViewOutput!
     var moduleInput: DetailsModuleInput!
-
+    
     // MARK: Object lifecycle
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         if presenter == nil {
-        	DetailsViewController.configureVIPERModule(for: self)
-		}
+            DetailsViewController.configureVIPERModule(for: self)
+        }
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         if presenter == nil {
-			DetailsViewController.configureVIPERModule(for: self)
+            DetailsViewController.configureVIPERModule(for: self)
         }
     }
-
+    
     // MARK: View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewIsReady()
@@ -79,6 +80,14 @@ final class DetailsViewController: BaseVC, StoryboardInstantiable {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    // MARK: - Action
+
+    @IBAction func addToCardAction(_ sender: Any) {
+        
+    }
+    
+    
     
 }
 
@@ -101,13 +110,9 @@ extension DetailsViewController: DetailsViewInput {
         pageControl.numberOfPages = image.count
     }
     
-    
-    
-	func setupInitialState() {
-
+    func setupInitialState() {
+        self.presenter.didTapAddToCard()
     }
-    
-  
 }
 
 

@@ -161,7 +161,7 @@
 		8E26E1FA2893CD4300AEB5B7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8E26E1FD2894103200AEB5B7 /* ImageProductCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProductCVC.swift; sourceTree = "<group>"; };
 		8E26E1FE2894103200AEB5B7 /* ImageProductCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageProductCVC.xib; sourceTree = "<group>"; };
-		8E5A38F528AA23AA00029591 /* CartManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartManager .swift"; sourceTree = "<group>"; };
+		8E5A38F528AA23AA00029591 /* CartManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartManager .swift"; sourceTree = "<group>"; wrapsLines = 0; };
 		8E5A38F728AA23E500029591 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		8E5A38F928AA2EBA00029591 /* ButtonCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCart.swift; sourceTree = "<group>"; };
 		8E5A38FC28ABB93C00029591 /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpenSans.ttf; sourceTree = "<group>"; };

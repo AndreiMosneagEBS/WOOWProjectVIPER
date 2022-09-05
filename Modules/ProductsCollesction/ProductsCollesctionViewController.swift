@@ -12,6 +12,7 @@ import EBSSwiftUtils
 protocol ProductsCollesctionViewInput: AnyObject {
     func setupInitialState()
     func didUpdateCollectionStructure(cells: [ProductsCollesctionCellType])
+    func updateCartCount(count: String)
 }
 
 protocol ProductsCollesctionViewOutput {
@@ -62,6 +63,7 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
         configureCollectionView()
         presenter.viewIsReady()
         setButton()
+
     }
 
     // MARK: - Configure
@@ -109,9 +111,7 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
 
     }
     @IBAction func filterAction(_ sender: Any) {
-        self.presenter.didTapFilterButton()
-//        collectionView.reloadData()
-        
+        self.presenter.didTapFilterButton()        
     }
     
     @IBAction func favoritesButtoonView(_ sender: Any) {
@@ -129,6 +129,10 @@ final class ProductsCollesctionViewController: BaseVC, StoryboardInstantiable {
 // MARK: - ProductsCollesctionViewInput
 
 extension ProductsCollesctionViewController: ProductsCollesctionViewInput {
+    func updateCartCount(count: String) {
+        self.labelCout.text = count
+    }
+    
     func setupInitialState() {
 
     }
@@ -143,11 +147,11 @@ extension ProductsCollesctionViewController: ProductsCollesctionViewInput {
 
 extension ProductsCollesctionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        labelCout.text = "\(UserSession.share.countProduct ?? 0) "
         
         return cells.count
     }
@@ -165,24 +169,20 @@ extension ProductsCollesctionViewController: UICollectionViewDelegate {
             cell.didTapFavorite = { [weak self] in
                 self?.presenter.didTapFavorite(model: product)
             }
-
             cell.didTapAddCart = { [weak self] in
                 self?.presenter.didTapAddCart(model: product)
             }
-            
             return cell
      
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch cells[indexPath.section] {
+        switch cells[indexPath.row] {
         case .product(product: let product):
             self.presenter.didTapCell(model: product)
         }
     }
-    
-    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
